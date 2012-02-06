@@ -90,7 +90,7 @@
               <p>左のリストから、見たいエントリポイントの仕様を選択してください。</p>
               
               <br />
-
+              <a name="common"></a>
               <h2>【共通仕様】リクエスト</h2>
               <p>スマートフォンAPIには、予め共通仕様のAPIリクエストが定められています。</p>
               <p>以下のリクエストは必須項目となっており、このフィールドが満たされていない場合は一部の例外を除きAPIが動きません。</p>
@@ -141,6 +141,59 @@
 					<td><code>message</code></td>
 					<td>APIリクエスト時に特定のメッセージを返すAPIについては、そのメッセージをこのフィールドの中に返されるようになっています。</td>
 				</tr>
+			</tbody>
+		</table>
+
+              </p>
+
+              <h2>【共通仕様】レスポンスのメンバー情報</h2>
+              <p>レスポンスの中でもメンバー情報を取り扱うものは、以下のフィールドの共通仕様に合わせるべきです。</p>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>フィールド名</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>member.id</code></td>
+					<td>メンバーIDを返します。</td>
+				</tr>
+
+				<tr>
+					<td><code>member.profile_image</code></td>
+					<td>メンバーのプロフィール画像を絶対URLで返します。プロフィール画像が登録されていない場合は、<code>no_image.gif</code>を絶対URLで返します。</td>
+				</tr>
+
+				<tr>
+					<td><code>member.name</code></td>
+					<td>メンバーのニックネームを返します。</td>
+				</tr>
+
+				<tr>
+					<td><code>member.friend</code></td>
+					<td>自分とフレンドリンクであれば<code>true</code>、そうでなければ<code>false</code>を返します。</td>
+				</tr>
+				<tr>
+					<td><code>member.blocking</code></td>
+					<td>自分がアクセスブロックしているメンバーであれば<code>true</code>、そうでなければ<code>false</code>を返します。</td>
+				</tr>
+				<tr>
+					<td><code>member.self</code></td>
+					<td>このメンバー情報は自分自身のものであれば<code>ture</code>、そうでなければ<code>false</code>を返します。</td>
+				</tr>
+
+				<tr>
+					<td><code>member.friends_count</code></td>
+					<td>メンバーのフレンドリンクの数を返します</td>
+				</tr>
+				<tr>
+					<td><code>member.self_introduction</code></td>
+					<td>メンバーのプロフィールにある自己紹介を返します。プロフィール項目に自己紹介が設定されていない場合は<code>false</code>を返します。</td>
+				</tr>
+
 			</tbody>
 		</table>
 
