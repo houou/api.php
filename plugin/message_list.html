@@ -121,6 +121,11 @@
 					<td><b>integer</b></td>
 					<td>取得したいメッセージの、取得件数を指定します。デフォルトは<code>20</code>。</td>
 				</tr>
+				<tr>
+					<td><code>detail</code></td>
+					<td><b>boolean</b></td>
+					<td>メッセージの詳細まで出力する場合は<code>true</code>を、そうでない場合は<code>false</code>を指定します。</td>
+				</tr>
 			</tbody>
 		</table>
               </p>
@@ -150,6 +155,9 @@
 					<td>メッセージの件名</td>
 				</tr>
 
+				<tr>
+					<td><code>body</code></td>
+					<td>メッセージの本文(リクエスト時に<code>detail=true</code>としていた場合のみ有効)</td>
 				<tr>
 					<td><code>created_at</code></td>
 					<td>作成された時間(送受信時間)</td>
