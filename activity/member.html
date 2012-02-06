@@ -40,7 +40,7 @@
           <a class="brand" href="/api.php/">OpenPNE3 スマートフォンAPI ドキュメント</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/api.php/">Home</a></li>
+              <li><a href="/api.php/">Home</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -56,7 +56,7 @@
               <li><a href="/api.php/activity/community.html">activity/community.json</a></li>
               <li><a href="/api.php/activity/delete.html">activity/delete.json</a></li>
               <li><a href="/api.php/activity/friends.html">activity/friends.json</a></li>
-              <li><a href="/api.php/activity/member.html">activity/member.json</a></li>
+              <li class="active"><a href="/api.php/activity/member.html">activity/member.json</a></li>
               <li><a href="/api.php/activity/mentions.html">activity/mentions.json</a></li>
               <li><a href="/api.php/activity/post.html">activity/post.json</a></li>
               <li><a href="/api.php/activity/search.html">activity/search.json</a></li>
@@ -85,9 +85,93 @@
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
-              <h2>このサイトについて</h2>
-              <p>このサイトは、OpenPNE3.8系から新たに追加された、スマートフォンAPIの仕様についてまとめたサイトです。</p>
-              <p>左のリストから、見たいエントリポイントの仕様を選択してください。</p>
+              <h2>activity/member.json 概要</h2>
+              <p>SNSメンバーのタイムラインを取得してきます。</p>
+              <p></p>
+
+              <h2>リクエスト</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>パラメータ</th>
+					<th>値</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>member_id</code></td>
+					<td><b>integer</b></td>
+					<td>取得したいメンバータイムラインの、メンバーIDを指定します。</td>
+				</tr>
+
+			</tbody>
+		</table>
+              </p>
+
+              <h2>レスポンス</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>フィールド名</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>id</code></td>
+					<td>タイムラインのID（連番）</td>
+				</tr>
+
+				<tr>
+					<td><code>member</code></td>
+					<td>メンバーの情報（詳しくは <a href="/api.php/index.html#common">レスポンスの共通仕様</a> を参照）</td>
+				</tr>
+
+				<tr>
+					<td><code>body</code></td>
+					<td>タイムラインの本文</td>
+				</tr>
+
+				<tr>
+					<td><code>body_html</code></td>
+					<td>タイムラインの本文（HTML版）</td>
+				</tr>
+
+				<tr>
+					<td><code>uri</code></td>
+					<td>タイムラインの参照URI</td>
+				</tr>
+
+				<tr>
+					<td><code>source</code></td>
+					<td>タイムラインの投稿元の名前</td>
+				</tr>
+
+				<tr>
+					<td><code>source_uri</code></td>
+					<td>タイムラインの投稿元のURL</td>
+				</tr>
+
+				<tr>
+					<td><code>created_at</code></td>
+					<td>投稿時間</td>
+				</tr>
+
+			</tbody>
+		</table>
+              </p>
+
+              <h2>サンプルレスポンス</h2>
+              <div class="alert alert-info">
+              <strong>Heads up!</strong> Google Chromeで「JSONView」という拡張をインストールすると、JSONのサンプルレスポンスがさらに見やすくなります。<br />
+              <a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView をダウンロード</a>
+              </div>
+              <p>
+                <a href="/api.php/activity/member.json">activity/member.json</a>
+              </p>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
