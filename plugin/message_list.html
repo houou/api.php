@@ -103,7 +103,7 @@
 
 					<td><code>type</code></td>
 					<td><b>string</b></td>
-					<td>取得したいメッセージのタイプを指定します。<code>receive</code><code>send</code><code>draft</code><code>dust</code>が指定可能です。</td>
+					<td>取得したいメッセージのタイプを指定します。<code>receive</code><code>send</code><code>draft</code><code>dust</code>が指定可能です。<br />デフォルトは<code>receive</code></td>
 				</tr>
 				<tr>
 					<td><code>max_id</code></td>
@@ -157,6 +157,12 @@
 				<tr>
 					<td><code>body</code></td>
 					<td>メッセージの本文(リクエスト時に<code>detail=true</code>としていた場合のみ有効)</td>
+                                </tr>
+                                <tr>
+					<td><code>is_read</code></td>
+					<td>メッセージが未読の場合は<code>true</code>、既読の場合は<code>false</code>を返します。またリクエスト時に、<code>detail=true</code>と指定すると、未読のメッセージが既読状態に変わります。</td>
+
+                                </tr>
 				<tr>
 					<td><code>created_at</code></td>
 					<td>作成された時間(送受信時間)</td>
@@ -165,14 +171,21 @@
 		</table>
               </p>
 
+              <h2>サンプルリクエスト</h2>
+              <pre>$ curl http://example.com/sns/plugin/message_list.json?type=receive&count=10&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+
+              <br />
+
+
               <h2>サンプルレスポンス</h2>
+              <p>
+                <a href="/api.php/plugin/message_list.json">plugin/message_list.json</a>
+              </p>
+
               <div class="alert alert-info">
               <strong>Heads up!</strong> Google Chromeで「JSONView」という拡張をインストールすると、JSONのサンプルレスポンスがさらに見やすくなります。<br />
               <a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView をダウンロード</a>
               </div>
-              <p>
-                <a href="/api.php/plugin/message_list.json">plugin/message_list.json</a>
-              </p>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
