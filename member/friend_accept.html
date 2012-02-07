@@ -40,7 +40,7 @@
           <a class="brand" href="/api.php/">OpenPNE3 スマートフォンAPI ドキュメント【開発版】</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/api.php/">Home</a></li>
+              <li><a href="/api.php/">Home</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -67,7 +67,7 @@
               <li><a href="/api.php/member/invite.html">member/invite.json</a></li>
               <li><a href="/api.php/member/invite_list.html">member/invite_list.json</a></li>
               <li><a href="/api.php/member/friend_request.html">member/friend_request.json</a></li>
-              <li><a href="/api.php/member/friend_accept.html">member/friend_accept.json</a></li>
+              <li class="active"><a href="/api.php/member/friend_accept.html">member/friend_accept.json</a></li>
               <li><a href="/api.php/member/search.html">member/search.json</a></li>
               <li><a href="/api.php/member/profile.html">member/profile_update.json</a></li>
               <li><a href="/api.php/global/search.html">global/search.json</a></li>
@@ -84,9 +84,62 @@
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
-              <h2>このサイトについて</h2>
-              <p>このサイトは、OpenPNE3.8系から新たに追加された、スマートフォンAPIの仕様についてまとめたサイトです。</p>
-              <p>左のリストから、見たいエントリポイントの仕様を選択してください。</p>
+              <h2>member/friend_accept.json 概要</h2>
+              <p>メンバーから来たフレンドリクエストを承認、あるいは拒否することができます。</p>
+              <p></p>
+
+              <h2>リクエスト</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>パラメータ</th>
+					<th>値</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+
+					<td><code>member_id</code></td>
+					<td><b>integer</b></td>
+					<td>フレンドリクエストを承認、あるいは拒否する相手のメンバーIDを指定します。</td>
+				</tr>
+				<tr>
+					<td><code>reject</code></td>
+					<td><b>boolean</b></td>
+					<td>フレンドリクエストを拒否したい場合は、このリクエストの値を<code>true</code>に指定します。</td>
+				</tr>
+			</tbody>
+		</table>
+              </p>
+
+              <h2>レスポンス</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>フィールド名</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>message</code></td>
+					<td><code>status</code>フィールドが<code>error</code>のときにメッセージを返します。</td>
+				</tr>
+			</tbody>
+		</table>
+              </p>
+
+              <h2>サンプルレスポンス</h2>
+              <div class="alert alert-info">
+              <strong>Heads up!</strong> Google Chromeで「JSONView」という拡張をインストールすると、JSONのサンプルレスポンスがさらに見やすくなります。<br />
+              <a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView をダウンロード</a>
+              </div>
+              <p>
+                <a href="/api.php/member/friend_accept.json">member/friend_accept.json</a>
+              </p>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
