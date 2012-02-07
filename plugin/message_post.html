@@ -116,6 +116,11 @@
 					<td>メッセージの本文を指定します。</td>
 				</tr>
 				<tr>
+					<td><code>category</code></td>
+					<td><b>string</b></td>
+					<td>メッセージのカテゴリを指定します。<code>receive</code><code>send</code><code>draft</code><code>dust</code>が指定可能です。</td>
+				</tr>
+				<tr>
 					<td><code>thread_message_id</code></td>
 					<td><b>integer</b></td>
 					<td>メッセージのスレッドIDを指定します。</td>
@@ -161,13 +166,14 @@
               </p>
 
               <h2>サンプルレスポンス</h2>
+              <p>
+                <a href="/api.php/plugin/message_post.json">plugin/message_post.json</a>
+              </p>
+
               <div class="alert alert-info">
               <strong>Heads up!</strong> Google Chromeで「JSONView」という拡張をインストールすると、JSONのサンプルレスポンスがさらに見やすくなります。<br />
               <a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView をダウンロード</a>
               </div>
-              <p>
-                <a href="/api.php/plugin/message_post.json">plugin/message_post.json</a>
-              </p>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
