@@ -40,7 +40,7 @@
           <a class="brand" href="/api.php/">OpenPNE3 スマートフォンAPI ドキュメント【開発版】</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/api.php/">Home</a></li>
+              <li><a href="/api.php/">Home</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -72,7 +72,7 @@
               <li><a href="/api.php/member/profile.html">member/profile_update.json</a></li>
               <li><a href="/api.php/global/search.html">global/search.json</a></li>
               <li><a href="/api.php/push/list.html">push/list.json</a></li>
-              <li><a href="/api.php/push/count.html">push/count.json</a></li>
+              <li class="count"><a href="/api.php/push/count.html">push/count.json</a></li>
               <li><a href="/api.php/plugin/diary_post.html">plugin/diary_post.json</a></li>
               <li><a href="/api.php/plugin/diary_search.html">plugin/diary_search.json</a></li>
               <li><a href="/api.php/plugin/message_list.html">plugin/message_list.json</a></li>
@@ -84,9 +84,66 @@
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
-              <h2>このサイトについて</h2>
-              <p>このサイトは、OpenPNE3.8系から新たに追加された、スマートフォンAPIの仕様についてまとめたサイトです。</p>
-              <p>左のリストから、見たいエントリポイントの仕様を選択してください。</p>
+              <h2>push/count.json 概要</h2>
+              <p>通知センターにある未読の通知件数を取得します。</p>
+              <p></p>
+
+              <h2>リクエスト</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>パラメータ</th>
+					<th>値</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+              </p>
+
+              <h2>レスポンス</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>フィールド名</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>link</code></td>
+					<td>フレンドリクエストの通知未読件数</td>
+				</tr>
+
+				<tr>
+					<td><code>message</code></td>
+					<td>メッセージの通知未読件数</td>
+				</tr>
+
+				<tr>
+					<td><code>other</code></td>
+					<td>その他自分宛の通知未読件数</td>
+				</tr>
+			</tbody>
+		</table>
+              </p>
+
+              <h2>サンプルリクエスト</h2>
+              <pre>$ curl http://example.com/sns/api.php/push/count.json?apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+              <br />
+
+              <h2>サンプルレスポンス</h2>
+              <p>
+                <a href="/api.php/push/count.json">push/count.json</a>
+              </p>
+
+              <div class="alert alert-info">
+              <strong>Heads up!</strong> Google Chromeで「JSONView」という拡張をインストールすると、JSONのサンプルレスポンスがさらに見やすくなります。<br />
+              <a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView をダウンロード</a>
+              </div>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
