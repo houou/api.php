@@ -85,7 +85,7 @@
           <div class="row-fluid">
             <div class="span12">
               <h2>activity/friends.json 概要</h2>
-              <p>自分とリンクしているメンバーのタイムライン一覧を取得してきます。</p>
+              <p>メンバーのタイムライン一覧を取得してきます。</p>
               <p></p>
 
               <h2>リクエスト</h2>
@@ -100,11 +100,16 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><code>community_id</code></td>
+					<td><code>member_id</code></td>
 					<td><b>integer</b></td>
-					<td>取得したいコミュニティタイムラインの、コミュニティIDを指定します。</td>
+					<td>取得したいメンバータイムラインの、メンバーIDを指定します。</td>
 				</tr>
 
+				<tr>
+					<td><code>count</code></td>
+					<td><b>integer</b></td>
+					<td>取得したいタイムラインの、取得件数を指定します。デフォルトは<code>20</code>。</td>
+				</tr>
 			</tbody>
 		</table>
               </p>
@@ -162,6 +167,12 @@
 			</tbody>
 		</table>
               </p>
+
+
+              <h2>サンプルリクエスト</h2>
+              <pre>$ curl http://example.com/sns/api.php/activity/friends.json?member_id=20</pre>
+
+              <br />
 
               <h2>サンプルレスポンス</h2>
               <div class="alert alert-info">
