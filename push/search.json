@@ -1,0 +1,32 @@
+{
+status: "success",
+data: [
+{
+body: "hogehoge",
+category: "message",
+unread: "false",
+icon_url: "http://example.com/images/no_image.gif",
+url: "http://example.com/member/action",
+member_id_from: "1",
+created_at: "Tue, 24 Jan 2012 17:57:16 +0900"
+},
+{
+body: "友達になってね",
+category: "friend",
+unread: "true",
+icon_url: "http://example.com/images/no_image.gif",
+url: "http://example.com/member/action",
+member_id_from: "13",
+created_at: "Tue, 25 Jan 2012 18:00:00 +0900"
+},
+{
+body: "@kashiwasan hogehoge",
+category: "other",
+unread: "true",
+icon_url: "http://example.com/images/no_image.gif",
+url: "http://example.com/member/action",
+member_id_from: "4",
+created_at: "Tue, 24 Jan 2012 19:57:10 +0900"
+}
+]
+}
