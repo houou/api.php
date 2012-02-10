@@ -53,7 +53,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">エントリポイント</li>
-              <li class="active"><a href="/api.php/activity/community.html">activity/community.json</a></li>
+              <li><a href="/api.php/activity/community.html">activity/community.json</a></li>
               <li><a href="/api.php/activity/delete.html">activity/delete.json</a></li>
               <li><a href="/api.php/activity/friends.html">activity/friends.json</a></li>
               <li><a href="/api.php/activity/member.html">activity/member.json</a></li>
@@ -75,8 +75,8 @@
               <li><a href="/api.php/push/count.html">push/count.json</a></li>
               <li><a href="/api.php/plugin/diary_post.html">plugin/diary_post.json</a></li>
               <li><a href="/api.php/plugin/diary_search.html">plugin/diary_search.json</a></li>
-              <li><a href="/api.php/plugin/message_list.html">plugin/message_list.json</a></li>
-              <li><a href="/api.php/plugin/message_list_inbox.html">plugin/message_list_inbox.json</a></li>
+              <li><a href="/api.php/plugin/message_list.html">plugin/message_list.json</a></li>n<li><a href="/api.php/plugin/message_list_inbox.html">plugin/message_list_inbox.json</a></li>
+              <li class="active"><a href="/api.php/plugin/message_list_inbox.html">plugin/message_list_inbox.json</a></li>
               <li><a href="/api.php/plugin/message_post.html">plugin/message_post.json</a></li>
               <li><a href="/api.php/plugin/message_delete.html">plugin/message_delete.json</a></li>
             </ul>
@@ -85,8 +85,8 @@
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
-              <h2>activity/community.json 概要</h2>
-              <p>コミュニティ別タイムラインを取得してきます。</p>
+              <h2>plugin/message_list.json 概要</h2>
+              <p>メッセージの一覧を取得します。</p>
               <p></p>
 
               <h2>リクエスト</h2>
@@ -101,15 +101,30 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><code>community_id</code> <span class="label label-important">*必須</span></td>
-					<td><b>integer</b></td>
-					<td>取得したいコミュニティタイムラインの、コミュニティIDを指定します。</td>
-				</tr>
 
+					<td><code>type</code></td>
+					<td><b>string</b></td>
+					<td>取得したいメッセージのタイプを指定します。<code>receive</code><code>send</code><code>draft</code><code>dust</code>が指定可能です。<br />デフォルトは<code>receive</code></td>
+				</tr>
+				<tr>
+					<td><code>max_id</code></td>
+					<td><b>integer</b></td>
+					<td>取得したいメッセージIDの最大値を指定します。</td>
+				</tr>
+				<tr>
+					<td><code>since_id</code></td>
+					<td><b>integer</b></td>
+					<td>取得したいメッセージIDの最小値を指定します。</td>
+				</tr>
 				<tr>
 					<td><code>count</code></td>
 					<td><b>integer</b></td>
-					<td>取得したいタイムラインの、取得件数を指定します。デフォルトは<code>20</code>。</td>
+					<td>取得したいメッセージの、取得件数を指定します。デフォルトは<code>20</code>。</td>
+				</tr>
+				<tr>
+					<td><code>detail</code></td>
+					<td><b>boolean</b></td>
+					<td>メッセージの詳細まで出力する場合は<code>true</code>を、そうでない場合は<code>false</code>を指定します。</td>
 				</tr>
 			</tbody>
 		</table>
@@ -127,7 +142,7 @@
 			<tbody>
 				<tr>
 					<td><code>id</code></td>
-					<td>タイムラインのID（連番）</td>
+					<td>メッセージのID（連番）</td>
 				</tr>
 
 				<tr>
@@ -136,47 +151,36 @@
 				</tr>
 
 				<tr>
+					<td><code>title</code></td>
+					<td>メッセージの件名</td>
+				</tr>
+
+				<tr>
 					<td><code>body</code></td>
-					<td>タイムラインの本文</td>
-				</tr>
+					<td>メッセージの本文(リクエスト時に<code>detail=true</code>としていた場合のみ有効)</td>
+                                </tr>
+                                <tr>
+					<td><code>is_read</code></td>
+					<td>メッセージが未読の場合は<code>true</code>、既読の場合は<code>false</code>を返します。またリクエスト時に、<code>detail=true</code>と指定すると、未読のメッセージが既読状態に変わります。</td>
 
-				<tr>
-					<td><code>body_html</code></td>
-					<td>タイムラインの本文（HTML版）</td>
-				</tr>
-
-				<tr>
-					<td><code>uri</code></td>
-					<td>タイムラインの参照URI</td>
-				</tr>
-
-				<tr>
-					<td><code>source</code></td>
-					<td>タイムラインの投稿元の名前</td>
-				</tr>
-
-				<tr>
-					<td><code>source_uri</code></td>
-					<td>タイムラインの投稿元のURL</td>
-				</tr>
-
+                                </tr>
 				<tr>
 					<td><code>created_at</code></td>
-					<td>投稿時間</td>
+					<td>作成された時間(送受信時間)</td>
 				</tr>
-
 			</tbody>
 		</table>
               </p>
 
               <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/sns/api.php/activity/community.json?community_id=1&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+              <pre>$ curl http://example.com/sns/plugin/message_list.json?type=receive&count=10&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
               <br />
 
+
               <h2>サンプルレスポンス</h2>
               <p>
-                <a href="/api.php/activity/community.json">activity/community.json</a>
+                <a href="/api.php/plugin/message_list.json">plugin/message_list.json</a>
               </p>
 
               <div class="alert alert-info">
