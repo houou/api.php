@@ -85,7 +85,7 @@
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
-              <h2>plugin/message_list.json 概要</h2>
+              <h2>plugin/message_list_inbox.json 概要</h2>
               <p>メッセージの一覧を取得します。</p>
               <p></p>
 
@@ -102,29 +102,19 @@
 			<tbody>
 				<tr>
 
-					<td><code>type</code></td>
-					<td><b>string</b></td>
-					<td>取得したいメッセージのタイプを指定します。<code>receive</code><code>send</code><code>draft</code><code>dust</code>が指定可能です。<br />デフォルトは<code>receive</code></td>
+					<td><code>page_id</code></td>
+					<td><b>integer</b></td>
+					<td>自分の受信しているメッセージ一覧のページIDを指定します。たとえば、<code>count=20</code>と指定して、<code>page_id=3</code>とすると、最新メッセージから41件目〜60件目のリストが返ってきます。デフォルトは<code>page_id=1</code></td>
 				</tr>
 				<tr>
 					<td><code>max_id</code></td>
 					<td><b>integer</b></td>
-					<td>取得したいメッセージIDの最大値を指定します。</td>
-				</tr>
-				<tr>
-					<td><code>since_id</code></td>
-					<td><b>integer</b></td>
-					<td>取得したいメッセージIDの最小値を指定します。</td>
+					<td><code>page_id=1</code>メッセージIDの最大値を指定します。</td>
 				</tr>
 				<tr>
 					<td><code>count</code></td>
 					<td><b>integer</b></td>
-					<td>取得したいメッセージの、取得件数を指定します。デフォルトは<code>20</code>。</td>
-				</tr>
-				<tr>
-					<td><code>detail</code></td>
-					<td><b>boolean</b></td>
-					<td>メッセージの詳細まで出力する場合は<code>true</code>を、そうでない場合は<code>false</code>を指定します。</td>
+					<td>取得したいメッセージの件数を指定します。</td>
 				</tr>
 			</tbody>
 		</table>
@@ -165,22 +155,22 @@
 
                                 </tr>
 				<tr>
-					<td><code>created_at</code></td>
-					<td>作成された時間(送受信時間)</td>
+					<td><code>updated_at</code></td>
+					<td>更新された時間(送受信時間)</td>
 				</tr>
 			</tbody>
 		</table>
               </p>
 
               <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/sns/plugin/message_list.json?type=receive&count=10&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+              <pre>$ curl http://example.com/sns/plugin/message_list_inbox.json?page=2&max_id=6220count=2&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
               <br />
 
 
               <h2>サンプルレスポンス</h2>
               <p>
-                <a href="/api.php/plugin/message_list.json">plugin/message_list.json</a>
+                <a href="/api.php/plugin/message_list_inbox.json">plugin/message_list_inbox.json</a>
               </p>
 
               <div class="alert alert-info">
