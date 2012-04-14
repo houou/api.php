@@ -58,8 +58,6 @@
               <li><a href="/api.php/guide/index.html">ファーストステップ</a></li>
 
 
-
-
               <li class="nav-header">アクティビティ（タイムライン）</li>
               <li><a href="/api.php/activity/search.html">activity/search.json</a></li>
               <li><a href="/api.php/activity/list.html">activity/list.json</a></li>
@@ -95,57 +93,66 @@
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
-              <h2>このサイトについて</h2>
-              <p>このサイトは、OpenPNE3.7開発版から新たに追加された、スマートフォンAPIの仕様についてまとめたサイトです。</p>
-              
-              <br />
+              <h2>ファーストステップガイド</h2>
+              <h2>メンバー情報を表示する</h2>
+              <h3>0. 管理画面にログイン</h3>
+              <p>管理画面のHTML挿入機能でHTML挿入Dを選択します。</p>
+          ※スクリーンショット
 
-              <h2>スマートフォンAPIの使い方</h2>
-              <p>スマートフォンAPIはとても簡単に使えます。一番簡単なサンプルを紹介します。</p>
-        
-              <h3>0. OpenPNEにログインする</h3>
-              <p>スマートフォンAPIにアクセスするためには、OpenPNEにログインしておく必要があります。まずはブラウザからアクセスし、OpenPNEにログインします。</p>
+              <h3>1. JavaScriptコードを入力</h3>
+<p>スマートフォンAPIを利用するJavaScriptコードを入力します。まずは以下のコードすべてをコピーして、HTML挿入のフォームに入力してください。</p>
 
-              <p></p>
-              <h3>1. APIキーを取得する</h3>
-              <p>APIにアクセスする際には、APIキーが必要になります。</p>
-              <p>APIキーはログイン後のすべてのHTMLコードの中に書かれていますので、それを使用します。</p>
-              <p><img src="http://p.pne.jp/d/529/201202081553.png" alt="APIキーの場所" /></p>
-              <p></p>
-              <h3>2. APIを呼び出す</h3>
-              <p>ターミナルからcurlコマンドを利用するか、あるいはブラウザで以下のURLに直接アクセスしてみましょう。</p>
-              <p><code>##APIKEY##</code>の部分を1.で取得したAPIキーに置き換えてください。</p>
-              <pre>$ curl http://example.com/sns/api.php/activity/search.json?apiKey=##APIKEY##</pre>
-              <p></p>
-
-              <h3>3. JSON形式のデータを取得する</h3>
-              <p>スマートフォンAPIから返答されるAPIレスポンスはJSON形式です。以下のようなデータ構造になります。（ActivityDataの場合）</p>
-<pre>
-{
-    "status": "success",
-    "data": [{
-        "id": "7",
-        "member": {
-            "id": "2",
-            "profile_image": "http://houou02.local.jp/images/no_image.gif",
-            "screen_name": "kashiwasan",
-            "name": "kashiwasan",
-            "profile_url": "http://houou02.local.jp/member/2",
-            "friend": false,
-            "blocking": false,
-            "self": true,
-            "friends_count": 0,
-            "self_introduction": null
-        },
-        "body": "@kashiwasan メンションを飛ばすことができる。",
-        "body_html": "&lt;a target=&quot;_blank&quot; href=&quot;http://houou02.local.jp/member/2&quot;&gt;@kashiwasan&lt;/a&gt; メンションを飛ばすことができる。",
-        "uri": null,
-        "source": null,
-        "source_uri": null,
-        "created_at": "Wed, 08 Feb 2012 16:31:03 +0900"
-    }, ]
-}
+<b>挿入するコード</b> 
+<pre class="prettyprint">
+&lt;script&gt;
+$(document).ready(function(){
+  var data = {};
+  data.apiKey = openpne.apiKey;
+  data.target = "member";
+  data.target_id = 1;
+  $.get(&#039;/api.php/member/search.json&#039;,data,function(json){
+    console.log(json);
+    alert("ID番のニックネームは[" + json.data[0]["name"] + "]です。");
+  });
+});
+&lt;/script&gt;
 </pre>
+
+              <h3>2. 動作確認</h3>
+<p>SNSにログインしホーム画面を開くと、次のようなダイアログが表示されます。</p>
+
+<img src="http://p.pne.jp/d/201204141417.png" alt="" />
+
+              <h3>3. APIの解説</h3>
+<b>apiKey</b>
+<p>OpenPNEログイン後の全ページのHTMLにはapiKeyがあらかじめセットされています。このキーをスマートフォンAPIのリクエストに含めることで、認証を行います。</p>
+<b>APIエントリポイント</b>
+<p>メンバー検索では、エントリポイントとして、/api.php/member/search.json を利用します。</p>
+
+<b>リクエストデータ</b>
+メンバー検索ではリクエストデータとして、<b>target</b> <b>target_id</b>のふたつのパラメータを使用します。これらを<b>data</b>にセットします。
+
+<b>$.get()メソッド</b>
+スマートフォンAPIを呼び出す際には、jQueryの$.get()メソッドを利用します。
+今回の例ではサーバからのレスポンスは、jsonデータに格納されます。
+
+
+
+              <h2>タイムラインに投稿する</h2>
+
+              <p>今度はスマートフォンAPIを使って、タイムラインに投稿してみます。</p>
+
+
+              <h3>入力フォーム</h3>
+              <p>自由に文字列を投稿できるための入力フォームを作ります。</p>
+
+              <h3>APIコール</h3>
+              <p>apiKey 入力フォームの値をセットし、APIをコールします。
+              今回は$.get()ではなく、エラーハンドルもできる、$.ajax()を使います。</p>
+
+              <h3>結果表示</h3>
+              <p>投稿が成功した場合は、投稿データが返ってきます。失敗した場合はエラーコードが返ります。</p>
+ 
 
             </div><!--/span-->
           </div><!--/row-->
