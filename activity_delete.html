@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>OpenPNE3 スマートフォンAPI ドキュメント【開発版】</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/api.php/css/bootstrap.css" rel="stylesheet">
+    <script src="./js/jquery.js"></script>
+    <script >
+    $(function(){
+      $("#t_navi").load("t_navi.html");
+    });
+    </script>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="/api.php/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/api.php/">OpenPNE3 スマートフォンAPI ドキュメント【開発版】</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/api.php/">Home</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div id="t_navi" class="span3">_</div>
+        <div class="span9">
+          <div class="row-fluid">
+            <div class="span12">
+              <h2>activity/delete.json 概要</h2>
+              <p>特定のタイムラインを削除します。</p>
+              <p></p>
+
+              <h2>リクエスト</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>パラメータ</th>
+					<th>値</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+
+					<td><code>activity_id</code></td>
+					<td><b>integer</b></td>
+					<td>削除したいタイムラインの、IDを指定します。</td>
+				</tr>
+			</tbody>
+		</table>
+              </p>
+
+              <h2>レスポンス</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>フィールド名</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>message</code></td>
+					<td><code>status</code>フィールドが<code>error</code>のときにメッセージを返します。</td>
+				</tr>
+
+			</tbody>
+		</table>
+              </p>
+
+
+              <h2>サンプルリクエスト</h2>
+              <pre>$ curl http://example.com/sns/api.php/activity/delete.json?activity_id=20&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+
+              <br />
+
+              <h2>サンプルレスポンス</h2>
+
+              <pre>
+{"status":"success"}
+              </pre>
+
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Tejimaya Inc. 2012 All Rights Reserved.</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/api.php/js/bootstrap-transition.js"></script>
+    <script src="/api.php/js/bootstrap-alert.js"></script>
+    <script src="/api.php/js/bootstrap-modal.js"></script>
+    <script src="/api.php/js/bootstrap-dropdown.js"></script>
+    <script src="/api.php/js/bootstrap-scrollspy.js"></script>
+    <script src="/api.php/js/bootstrap-tab.js"></script>
+    <script src="/api.php/js/bootstrap-tooltip.js"></script>
+    <script src="/api.php/js/bootstrap-popover.js"></script>
+    <script src="/api.php/js/bootstrap-button.js"></script>
+    <script src="/api.php/js/bootstrap-collapse.js"></script>
+    <script src="/api.php/js/bootstrap-carousel.js"></script>
+    <script src="/api.php/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

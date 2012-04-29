@@ -13,6 +13,12 @@
 
     <!-- Le styles -->
     <link href="/api.php/css/bootstrap.css" rel="stylesheet">
+    <script src="./js/jquery.js"></script>
+    <script >
+    $(function(){
+      $("#t_navi").load("t_navi.html");
+    });
+    </script>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -49,44 +55,12 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">エントリポイント</li>
-              <li><a href="/api.php/activity/community.html">activity/community.json</a></li>
-              <li><a href="/api.php/activity/delete.html">activity/delete.json</a></li>
-              <li><a href="/api.php/activity/friends.html">activity/friends.json</a></li>
-              <li><a href="/api.php/activity/member.html">activity/member.json</a></li>
-              <li><a href="/api.php/activity/mentions.html">activity/mentions.json</a></li>
-              <li><a href="/api.php/activity/post.html">activity/post.json</a></li>
-              <li><a href="/api.php/activity/search.html">activity/search.json</a></li>
-              <li><a href="/api.php/community/join.html">community/join.json</a></li>
-              <li><a href="/api.php/community/search.html">community/search.json</a></li>
-              <li><a href="/api.php/member/block.html">member/block.json</a></li>
-              <li><a href="/api.php/member/communities.html">member/communities.json</a></li>
-              <li><a href="/api.php/member/invite.html">member/invite.json</a></li>
-              <li><a href="/api.php/member/invite_list.html">member/invite_list.json</a></li>
-              <li><a href="/api.php/member/friend_request.html">member/friend_request.json</a></li>
-              <li class="active"><a href="/api.php/member/friend_accept.html">member/friend_accept.json</a></li>
-              <li><a href="/api.php/member/search.html">member/search.json</a></li>
-              <li><a href="/api.php/member/profile.html">member/profile_update.json</a></li>
-              <li><a href="/api.php/global/search.html">global/search.json</a></li>
-              <li><a href="/api.php/push/search.html">push/list.json</a></li>
-              <li><a href="/api.php/push/count.html">push/count.json</a></li>
-              <li><a href="/api.php/plugin/diary_post.html">plugin/diary_post.json</a></li>
-              <li><a href="/api.php/plugin/diary_search.html">plugin/diary_search.json</a></li>
-              <li><a href="/api.php/plugin/message_list.html">plugin/message_list.json</a></li>
-              <li><a href="/api.php/plugin/message_list_inbox.html">plugin/message_list_inbox.json</a></li>
-              <li><a href="/api.php/plugin/message_post.html">plugin/message_post.json</a></li>
-              <li><a href="/api.php/plugin/message_delete.html">plugin/message_delete.json</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+        <div id="t_navi" class="span3">_</div>
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
-              <h2>member/friend_accept.json 概要</h2>
-              <p>メンバーから来たフレンドリクエストを承認、あるいは拒否することができます。</p>
+              <h2>push/count.json 概要</h2>
+              <p>通知センターにある未読の通知件数を取得します。</p>
               <p></p>
 
               <h2>リクエスト</h2>
@@ -100,17 +74,6 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-
-					<td><code>member_id <span class="label label-important">*必須</span></code></td>
-					<td><b>integer</b></td>
-					<td>フレンドリクエストを承認、あるいは拒否する相手のメンバーIDを指定します。</td>
-				</tr>
-				<tr>
-					<td><code>reject</code></td>
-					<td><b>boolean</b></td>
-					<td>フレンドリクエストを拒否したい場合は、このリクエストの値を<code>true</code>に指定します。</td>
-				</tr>
 			</tbody>
 		</table>
               </p>
@@ -126,27 +89,36 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td><code>link</code></td>
+					<td>フレンドリクエストの通知未読件数</td>
+				</tr>
+
+				<tr>
 					<td><code>message</code></td>
-					<td><code>status</code>フィールドが<code>error</code>のときにメッセージを返します。</td>
+					<td>メッセージの通知未読件数</td>
+				</tr>
+
+				<tr>
+					<td><code>other</code></td>
+					<td>その他自分宛の通知未読件数</td>
 				</tr>
 			</tbody>
 		</table>
               </p>
-              <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/sns/member/friend_accept.json?member_id=1234&reject=true&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
+              <h2>サンプルリクエスト</h2>
+              <pre>$ curl http://example.com/sns/api.php/push/count.json?apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
               <br />
 
               <h2>サンプルレスポンス</h2>
               <p>
-                <a href="/api.php/member/friend_accept.json">member/friend_accept.json</a>
+                <a href="/api.php/push/count.json">push/count.json</a>
               </p>
 
               <div class="alert alert-info">
               <strong>Heads up!</strong> Google Chromeで「JSONView」という拡張をインストールすると、JSONのサンプルレスポンスがさらに見やすくなります。<br />
               <a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView をダウンロード</a>
               </div>
-
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
@@ -163,7 +135,6 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/api.php/js/jquery.js"></script>
     <script src="/api.php/js/bootstrap-transition.js"></script>
     <script src="/api.php/js/bootstrap-alert.js"></script>
     <script src="/api.php/js/bootstrap-modal.js"></script>

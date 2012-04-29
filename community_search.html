@@ -13,6 +13,12 @@
 
     <!-- Le styles -->
     <link href="/api.php/css/bootstrap.css" rel="stylesheet">
+    <script src="./js/jquery.js"></script>
+    <script >
+    $(function(){
+      $("#t_navi").load("t_navi.html");
+    });
+    </script>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -49,44 +55,12 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">エントリポイント</li>
-              <li><a href="/api.php/activity/community.html">activity/community.json</a></li>
-              <li><a href="/api.php/activity/delete.html">activity/delete.json</a></li>
-              <li><a href="/api.php/activity/friends.html">activity/friends.json</a></li>
-              <li><a href="/api.php/activity/member.html">activity/member.json</a></li>
-              <li><a href="/api.php/activity/mentions.html">activity/mentions.json</a></li>
-              <li><a href="/api.php/activity/post.html">activity/post.json</a></li>
-              <li><a href="/api.php/activity/search.html">activity/search.json</a></li>
-              <li><a href="/api.php/community/join.html">community/join.json</a></li>
-              <li><a href="/api.php/community/search.html">community/search.json</a></li>
-              <li><a href="/api.php/member/block.html">member/block.json</a></li>
-              <li><a href="/api.php/member/communities.html">member/communities.json</a></li>
-              <li><a href="/api.php/member/invite.html">member/invite.json</a></li>
-              <li><a href="/api.php/member/invite_list.html">member/invite_list.json</a></li>
-              <li><a href="/api.php/member/friend_request.html">member/friend_request.json</a></li>
-              <li><a href="/api.php/member/friend_accept.html">member/friend_accept.json</a></li>
-              <li><a href="/api.php/member/search.html">member/search.json</a></li>
-              <li><a href="/api.php/member/profile.html">member/profile_update.json</a></li>
-              <li><a href="/api.php/global/search.html">global/search.json</a></li>
-              <li><a href="/api.php/push/search.html">push/list.json</a></li>
-              <li class="active"><a href="/api.php/push/count.html">push/count.json</a></li>
-              <li><a href="/api.php/plugin/diary_post.html">plugin/diary_post.json</a></li>
-              <li><a href="/api.php/plugin/diary_search.html">plugin/diary_search.json</a></li>
-              <li><a href="/api.php/plugin/message_list.html">plugin/message_list.json</a></li>
-              <li><a href="/api.php/plugin/message_list_inbox.html">plugin/message_list_inbox.json</a></li>
-              <li><a href="/api.php/plugin/message_post.html">plugin/message_post.json</a></li>
-              <li><a href="/api.php/plugin/message_delete.html">plugin/message_delete.json</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+        <div id="t_navi" class="span3">_</div>
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
-              <h2>push/count.json 概要</h2>
-              <p>通知センターにある未読の通知件数を取得します。</p>
+              <h2>community/search.json 概要</h2>
+              <p>コミュニティを検索してコミュニティの詳細情報を出力します。</p>
               <p></p>
 
               <h2>リクエスト</h2>
@@ -100,6 +74,12 @@
 				</tr>
 			</thead>
 			<tbody>
+				<tr>
+
+					<td><code>keyword</code></td>
+					<td><b>string</b></td>
+					<td>検索したいキーワードを指定します。</td>
+				</tr>
 			</tbody>
 		</table>
               </p>
@@ -115,30 +95,71 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><code>link</code></td>
-					<td>フレンドリクエストの通知未読件数</td>
+					<td><code>id</code></td>
+					<td>コミュニティのID</td>
 				</tr>
 
 				<tr>
-					<td><code>message</code></td>
-					<td>メッセージの通知未読件数</td>
+					<td><code>name</code></td>
+					<td>コミュニティの名前</td>
+				</tr>
+				<tr>
+					<td><code>category</code></td>
+					<td>コミュニティのカテゴリ</td>
+				</tr>
+				<tr>
+					<td><code>community_url</code></td>
+					<td>コミュニティTOPのURL</td>
+				</tr>
+				<tr>
+					<td><code>community_image_url</code></td>
+					<td>コミュニティイメージ画像のURL</td>
 				</tr>
 
 				<tr>
-					<td><code>other</code></td>
-					<td>その他自分宛の通知未読件数</td>
+					<td><code>joining</code></td>
+					<td>このコミュニティに参加していれば<code>true</code>, そうでなければ<code>false</code>を返します。</td>
+				</tr>
+				<tr>
+					<td><code>admin</code></td>
+					<td>このコミュニティの管理人であれば<code>true</code>, そうでなければ<code>false</code>を返します。</td>
+				</tr>
+				<tr>
+					<td><code>sub_admin</code></td>
+					<td>このコミュニティの副管理人であれば<code>true</code>, そうでなければ<code>false</code>を返します。</td>
+				</tr>
+				<tr>
+					<td><code>created_at</code></td>
+					<td>コミュニティが作成された日付</td>
+				</tr>
+				<tr>
+					<td><code>admin_member</code></td>
+					<td>コミュニティ管理人のメンバー情報（詳しくは <a href="/api.php/index.html#common">レスポンスの共通仕様</a> を参照）</td>
+				</tr>
+				<tr>
+					<td><code>member_count</code></td>
+					<td>コミュニティ参加者の数</td>
+				</tr>
+				<tr>
+					<td><code>public_flag</code></td>
+					<td>コミュニティの公開範囲</td>
+				</tr>
+				<tr>
+					<td><code>register_policy</code></td>
+					<td>コミュニティの参加条件</td>
 				</tr>
 			</tbody>
 		</table>
               </p>
 
               <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/sns/api.php/push/count.json?apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+              <pre>$ curl http://example.com/sns/community/search.json?keyword=OpenPNE&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+
               <br />
 
               <h2>サンプルレスポンス</h2>
               <p>
-                <a href="/api.php/push/count.json">push/count.json</a>
+                <a href="/api.php/community/search.json">community/search.json</a>
               </p>
 
               <div class="alert alert-info">

@@ -15,6 +15,12 @@
     <link href="/api.php/css/bootstrap.css" rel="stylesheet">
     <link href="/api.php/css/prettify.css" rel="stylesheet">
     <script src="/api.php/js/prettify.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script >
+    $(function(){
+      $("#t_navi").load("t_navi.html");
+    });
+    </script>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -51,58 +57,27 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">ガイド</li>
-              <li><a href="/api.php/guide/index.html">ファーストステップ</a></li>
-
-
-              <li class="nav-header">アクティビティ（タイムライン）</li>
-              <li><a href="/api.php/activity/search.html">activity/search.json</a></li>
-              <li><a href="/api.php/activity/list.html">activity/list.json</a></li>
-              <li><a href="/api.php/activity/member.html">activity/member.json</a></li>
-              <li><a href="/api.php/activity/friends.html">activity/friends.json</a></li>
-              <li><a href="/api.php/activity/community.html">activity/community.json</a></li>
-              <li><a href="/api.php/activity/mentions.html">activity/mentions.json</a></li>
-              <li><a href="/api.php/activity/post.html">activity/post.json</a></li>
-              <li><a href="/api.php/activity/delete.html">activity/delete.json</a></li>
-              <li class="nav-header">メンバー</li>
-              <li><a href="/api.php/member/search.html">member/search.json</a></li>
-              <li><a href="/api.php/member/list.html">member/list.json</a></li>
-              <li><a href="/api.php/member/community.html">member/community.json</a></li>
-              <li><a href="/api.php/member/friend_accept.html">member/friend_accept.json</a></li>
-              <li><a href="/api.php/member/friend_reject.html">member/friend_reject.json</a></li>
-              <li><a href="/api.php/member/friend_request.html">member/friend_request.json</a></li>
-              <li><a href="/api.php/member/friend_unlink.html">member/friend_unlink.json</a></li>
-
-              <li class="nav-header">コミュニティ</li>
-              <li><a href="/api.php/community/search.html">community/search.json</a></li>
-              <li><a href="/api.php/community/list.html">community/list.json</a></li>
-              <li><a href="/api.php/community/member.html">community/member.json</a></li>
-              <li><a href="/api.php/community/join.html">community/join.json</a></li>
-
-              <li class="nav-header">通知センター</li>
-              <li><a href="/api.php/push/search.html">push/search.json</a></li>
-              <li><a href="/api.php/push/list.html">push/list.json</a></li>
-              <li><a href="/api.php/push/count.html">push/count.json</a></li>
-              <li><a href="/api.php/push/read.html">push/read.json</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+        <div id="t_navi" class="span3">_</div>
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
               <h2>ファーストステップガイド</h2>
-              <h2>メンバー情報を表示する</h2>
+              <p>OpenPNE3.8から新しく導入された、スマートフォンAPI。このAPIはスマートフォンだけでなくPCブラウザからでも、利用できるように設計されています。本ガイドでは、本APIを使うための第一歩をチュートリアル形式で説明します。</p>
+
+              <h2>APIでメンバー情報を取得する</h2>
+              <p>それではまず最初に、SNSのメンバー情報にアクセスするやり方を見ていきましょう。数行のJavaScriptコードを埋め込むだけでアクセスできます。</p>
+
               <h3>0. 管理画面にログイン</h3>
-              <p>管理画面のHTML挿入機能でHTML挿入Dを選択します。</p>
-          ※スクリーンショット
+              <p>管理画面のHTML挿入機能でHTML挿入Aを選択します。</p>
+
+<div class="alert alert-success"><strong>TIPS</strong> WEB画面にHTMLさえ埋め込めれば、フリーページガジェット、ソースコードの直接編集など、HTML挿入以外でもAPIを呼び出すことができます。</div>
+
+          <img src="http://placehold.it/400x250&text=ScreenShot" alt="">
 
               <h3>1. JavaScriptコードを入力</h3>
 <p>スマートフォンAPIを利用するJavaScriptコードを入力します。まずは以下のコードすべてをコピーして、HTML挿入のフォームに入力してください。</p>
 
-<b>挿入するコード</b> 
+<b>管理画面に挿入するコード</b> 
 <pre class="prettyprint">
 &lt;script&gt;
 $(document).ready(function(){
@@ -125,7 +100,7 @@ $(document).ready(function(){
 
               <h3>3. APIの解説</h3>
 <b>apiKey</b>
-<p>OpenPNEログイン後の全ページのHTMLにはapiKeyがあらかじめセットされています。このキーをスマートフォンAPIのリクエストに含めることで、認証を行います。</p>
+<p>OpenPNEログイン後の全ページのHTMLにはapiKeyがあらかじめセットされています。このキーをスマートフォンAPIのリクエストに含めることで、認証を行うことができます。</p>
 <b>APIエントリポイント</b>
 <p>メンバー検索では、エントリポイントとして、/api.php/member/search.json を利用します。</p>
 
@@ -145,6 +120,8 @@ $(document).ready(function(){
 
               <h3>入力フォーム</h3>
               <p>自由に文字列を投稿できるための入力フォームを作ります。</p>
+              <img src="http://placehold.it/400x250&text=ScreenShot" alt="">
+
 
               <h3>APIコール</h3>
               <p>apiKey 入力フォームの値をセットし、APIをコールします。
@@ -170,7 +147,6 @@ $(document).ready(function(){
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap-transition.js"></script>
     <script src="./js/bootstrap-alert.js"></script>
     <script src="./js/bootstrap-modal.js"></script>

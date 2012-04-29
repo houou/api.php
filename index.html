@@ -3,8 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>OpenPNE3 スマートフォンAPI ドキュメント【開発版】</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -15,6 +13,12 @@
     <link href="/api.php/css/bootstrap.css" rel="stylesheet">
     <link href="/api.php/css/prettify.css" rel="stylesheet">
     <script src="/api.php/js/prettify.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script >
+    $(function(){
+      $("#t_navi").load("t_navi.html");
+    });
+    </script>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -30,7 +34,6 @@
   </head>
 
   <body onload="prettyPrint()">
-
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -48,122 +51,83 @@
         </div>
       </div>
     </div>
-
-    <div class="container-fluid">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div id="t_navi" class="span3">_</div>
+    <div class="span9">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">ガイド</li>
-              <li><a href="/api.php/guide/index.html">ファーストステップ</a></li>
+        <div class="span12">
+          <h2>このサイトについて</h2>
+          <p>このサイトは、OpenPNE3.7開発版から新たに追加された、スマートフォンAPIの仕様
+についてまとめたサイトです。</p>
 
+          <br />
 
+          <h2>スマートフォンAPIの使い方</h2>
+          <p>スマートフォンAPIはとても簡単に使えます。一番簡単なサンプルを紹介します。</p>
 
+          <h3>0. OpenPNEにログインする</h3>
+          <p>スマートフォンAPIにアクセスするためには、OpenPNEにログインしておく必要があ>ります。まずはブラウザからアクセスし、OpenPNEにログインします。</p>
 
-              <li class="nav-header">アクティビティ（タイムライン）</li>
-              <li><a href="/api.php/activity/search.html">activity/search.json</a></li>
-              <li><a href="/api.php/activity/list.html">activity/list.json</a></li>
-              <li><a href="/api.php/activity/member.html">activity/member.json</a></li>
-              <li><a href="/api.php/activity/friends.html">activity/friends.json</a></li>
-              <li><a href="/api.php/activity/community.html">activity/community.json</a></li>
-              <li><a href="/api.php/activity/mentions.html">activity/mentions.json</a></li>
-              <li><a href="/api.php/activity/post.html">activity/post.json</a></li>
-              <li><a href="/api.php/activity/delete.html">activity/delete.json</a></li>
-              <li class="nav-header">メンバー</li>
-              <li><a href="/api.php/member/search.html">member/search.json</a></li>
-              <li><a href="/api.php/member/list.html">member/list.json</a></li>
-              <li><a href="/api.php/member/community.html">member/community.json</a></li>
-              <li><a href="/api.php/member/friend_accept.html">member/friend_accept.json</a></li>
-              <li><a href="/api.php/member/friend_reject.html">member/friend_reject.json</a></li>
-              <li><a href="/api.php/member/friend_request.html">member/friend_request.json</a></li>
-              <li><a href="/api.php/member/friend_unlink.html">member/friend_unlink.json</a></li>
+          <p></p>
+          <h3>1. APIキーを取得する</h3>
+          <p>APIにアクセスする際には、APIキーが必要になります。</p>
+          <p>APIキーはログイン後のすべてのHTMLコードの中に書かれていますので、それを使用
+します。</p>
+          <p><img src="http://p.pne.jp/d/529/201202081553.png" alt="APIキーの場所" /></p>
+          <p></p>
+          <h3>2. APIを呼び出す</h3>
+          <p>ターミナルからcurlコマンドを利用するか、あるいはブラウザで以下のURLに直接ア
+クセスしてみましょう。</p>
+          <p><code>##APIKEY##</code>の部分を1.で取得したAPIキーに置き換えてください。</p>
+          <pre>$ curl http://example.com/sns/api.php/activity/search.json?apiKey=##APIKEY##</pre>
+          <p></p>
 
-              <li class="nav-header">コミュニティ</li>
-              <li><a href="/api.php/community/search.html">community/search.json</a></li>
-              <li><a href="/api.php/community/list.html">community/list.json</a></li>
-              <li><a href="/api.php/community/member.html">community/member.json</a></li>
-              <li><a href="/api.php/community/join.html">community/join.json</a></li>
+          <h3>3. JSON形式のデータを取得する</h3>
+          <p>スマートフォンAPIから返答されるAPIレスポンスはJSON形式です。以下のようなデ>ータ構造になります。（ActivityDataの場合）</p>   
 
-              <li class="nav-header">通知センター</li>
-              <li><a href="/api.php/push/search.html">push/search.json</a></li>
-              <li><a href="/api.php/push/list.html">push/list.json</a></li>
-              <li><a href="/api.php/push/count.html">push/count.json</a></li>
-              <li><a href="/api.php/push/read.html">push/read.json</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <div class="row-fluid">
-            <div class="span12">
-              <h2>このサイトについて</h2>
-              <p>このサイトは、OpenPNE3.7開発版から新たに追加された、スマートフォンAPIの仕様についてまとめたサイトです。</p>
-              
-              <br />
-
-              <h2>スマートフォンAPIの使い方</h2>
-              <p>スマートフォンAPIはとても簡単に使えます。一番簡単なサンプルを紹介します。</p>
-        
-              <h3>0. OpenPNEにログインする</h3>
-              <p>スマートフォンAPIにアクセスするためには、OpenPNEにログインしておく必要があります。まずはブラウザからアクセスし、OpenPNEにログインします。</p>
-
-              <p></p>
-              <h3>1. APIキーを取得する</h3>
-              <p>APIにアクセスする際には、APIキーが必要になります。</p>
-              <p>APIキーはログイン後のすべてのHTMLコードの中に書かれていますので、それを使用します。</p>
-              <p><img src="http://p.pne.jp/d/529/201202081553.png" alt="APIキーの場所" /></p>
-              <p></p>
-              <h3>2. APIを呼び出す</h3>
-              <p>ターミナルからcurlコマンドを利用するか、あるいはブラウザで以下のURLに直接アクセスしてみましょう。</p>
-              <p><code>##APIKEY##</code>の部分を1.で取得したAPIキーに置き換えてください。</p>
-              <pre>$ curl http://example.com/sns/api.php/activity/search.json?apiKey=##APIKEY##</pre>
-              <p></p>
-
-              <h3>3. JSON形式のデータを取得する</h3>
-              <p>スマートフォンAPIから返答されるAPIレスポンスはJSON形式です。以下のようなデータ構造になります。（ActivityDataの場合）</p>
 <pre>
 {
-    "status": "success",
-    "data": [{
-        "id": "7",
-        "member": {
-            "id": "2",
-            "profile_image": "http://houou02.local.jp/images/no_image.gif",
-            "screen_name": "kashiwasan",
-            "name": "kashiwasan",
-            "profile_url": "http://houou02.local.jp/member/2",
-            "friend": false,
-            "blocking": false,
-            "self": true,
-            "friends_count": 0,
-            "self_introduction": null
-        },
-        "body": "@kashiwasan メンションを飛ばすことができる。",
-        "body_html": "&lt;a target=&quot;_blank&quot; href=&quot;http://houou02.local.jp/member/2&quot;&gt;@kashiwasan&lt;/a&gt; メンションを飛ばすことができる。",
-        "uri": null,
-        "source": null,
-        "source_uri": null,
-        "created_at": "Wed, 08 Feb 2012 16:31:03 +0900"
-    }, ]
+"status": "success",
+"data": [{
+    "id": "7",
+    "member": {
+        "id": "2",
+        "profile_image": "http://houou02.local.jp/images/no_image.gif",
+        "screen_name": "kashiwasan",
+        "name": "kashiwasan",
+        "profile_url": "http://houou02.local.jp/member/2",
+        "friend": false,
+        "blocking": false,
+        "self": true,
+        "friends_count": 0,
+        "self_introduction": null
+    },
+    "body": "@kashiwasan メンションを飛ばすことができる。",
+    "body_html": "&lt;a target=&quot;_blank&quot; href=&quot;http://houou02.local.jp/member/2&quot;&gt;@kashiwasan&lt;/a&gt; メンションを飛ばすことができる。",
+    "uri": null,
+    "source": null,
+    "source_uri": null,
+    "created_at": "Wed, 08 Feb 2012 16:31:03 +0900"
+}, ]
 }
 </pre>
 
-            </div><!--/span-->
-          </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
+    </div><!--/span-->
+  </div><!--/row-->
 
-      <hr>
+  <hr>
 
-      <footer>
-        <p>&copy; Tejimaya Inc. 2012 All Rights Reserved.</p>
-      </footer>
+  <footer>
+    <p>&copy; Tejimaya Inc. 2012 All Rights Reserved.</p>
+  </footer>
 
-    </div><!--/.fluid-container-->
-    
+</div><!--/.fluid-container-->
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap-transition.js"></script>
     <script src="./js/bootstrap-alert.js"></script>
     <script src="./js/bootstrap-modal.js"></script>

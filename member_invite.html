@@ -13,6 +13,12 @@
 
     <!-- Le styles -->
     <link href="/api.php/css/bootstrap.css" rel="stylesheet">
+    <script src="./js/jquery.js"></script>
+    <script >
+    $(function(){
+      $("#t_navi").load("t_navi.html");
+    });
+    </script>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -49,39 +55,7 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">エントリポイント</li>
-              <li><a href="/api.php/activity/community.html">activity/community.json</a></li>
-              <li><a href="/api.php/activity/delete.html">activity/delete.json</a></li>
-              <li><a href="/api.php/activity/friends.html">activity/friends.json</a></li>
-              <li><a href="/api.php/activity/member.html">activity/member.json</a></li>
-              <li><a href="/api.php/activity/mentions.html">activity/mentions.json</a></li>
-              <li><a href="/api.php/activity/post.html">activity/post.json</a></li>
-              <li><a href="/api.php/activity/search.html">activity/search.json</a></li>
-              <li><a href="/api.php/community/join.html">community/join.json</a></li>
-              <li><a href="/api.php/community/search.html">community/search.json</a></li>
-              <li><a href="/api.php/member/block.html">member/block.json</a></li>
-              <li><a href="/api.php/member/communities.html">member/communities.json</a></li>
-              <li><a href="/api.php/member/invite.html">member/invite.json</a></li>
-              <li><a href="/api.php/member/invite_list.html">member/invite_list.json</a></li>
-              <li><a href="/api.php/member/friend_request.html">member/friend_request.json</a></li>
-              <li><a href="/api.php/member/friend_accept.html">member/friend_accept.json</a></li>
-              <li><a href="/api.php/member/search.html">member/search.json</a></li>
-              <li><a href="/api.php/member/profile.html">member/profile_update.json</a></li>
-              <li><a href="/api.php/global/search.html">global/search.json</a></li>
-              <li><a href="/api.php/push/search.html">push/list.json</a></li>
-              <li><a href="/api.php/push/count.html">push/count.json</a></li>
-              <li><a href="/api.php/plugin/diary_post.html">plugin/diary_post.json</a></li>
-              <li><a href="/api.php/plugin/diary_search.html">plugin/diary_search.json</a></li>
-              <li><a href="/api.php/plugin/message_list.html">plugin/message_list.json</a></li>
-              <li><a href="/api.php/plugin/message_list_inbox.html">plugin/message_list_inbox.json</a></li>
-              <li><a href="/api.php/plugin/message_post.html">plugin/message_post.json</a></li>
-              <li><a href="/api.php/plugin/message_delete.html">plugin/message_delete.json</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+        <div id="t_navi" class="span3">_</div>
         <div class="span9">
           <div class="row-fluid">
             <div class="span12">
@@ -104,7 +78,6 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/api.php/js/jquery.js"></script>
     <script src="/api.php/js/bootstrap-transition.js"></script>
     <script src="/api.php/js/bootstrap-alert.js"></script>
     <script src="/api.php/js/bootstrap-modal.js"></script>
