@@ -72,7 +72,7 @@
 
 <div class="alert alert-success"><strong>TIPS</strong> WEB画面にHTMLさえ埋め込めれば、フリーページガジェット、ソースコードの直接編集など、HTML挿入以外でもAPIを呼び出すことができます。</div>
 
-          <img src="http://placehold.it/400x250&text=ScreenShot" alt="">
+          <img src="http://p.pne.jp/d/201207022247.png" alt="">
 
               <h3>1. JavaScriptコードを入力</h3>
 <p>スマートフォンAPIを利用するJavaScriptコードを入力します。まずは以下のコードすべてをコピーして、HTML挿入のフォームに入力してください。</p>
@@ -81,11 +81,11 @@
 <pre class="prettyprint">
 &lt;script&gt;
 $(document).ready(function(){
-  var data = {};
-  data.apiKey = openpne.apiKey;
-  data.target = "member";
-  data.target_id = 1;
-  $.get(&#039;/api.php/member/search.json&#039;,data,function(json){
+  var params = {};
+  params.apiKey = openpne.apiKey;
+  params.target = "member";
+  params.target_id = 1;
+  $.get(&#039;/api.php/member/search.json&#039;,params,function(json){
     console.log(json);
     alert("ID番のニックネームは[" + json.data[0]["name"] + "]です。");
   });
@@ -116,23 +116,26 @@ $(document).ready(function(){
 
 
 
-              <h2>タイムラインに投稿する</h2>
+              <h2>コミュニティリストをAJAX化する</h2>
 
-              <p>今度はスマートフォンAPIを使って、タイムラインに投稿してみます。</p>
-
-
-              <h3>入力フォーム</h3>
-              <p>自由に文字列を投稿できるための入力フォームを作ります。</p>
-              <img src="http://placehold.it/400x250&text=ScreenShot" alt="">
+              <p>今度はHTMLタグを使って、実際にデザインを埋めこんでみます。OpenPNE3.8からは、デザインにjquery-templという、JavaScriptのテンプレートエンジンを使っています。スマートフォンAPI+jQuery+jquery-tmplで既存の9面テーブルを置き換えます。</p>
 
 
               <h3>APIコール</h3>
-              <p>apiKey 入力フォームの値をセットし、APIをコールします。
-              今回は$.get()ではなく、エラーハンドルもできる、$.ajax()を使います。</p>
+              <p>今回はapi.php/member/community.jsonを利用します。このAPIを使えば自分が所属するコミュニティのリストを取得することができます。member_id=5というように、引数を指定すればそのメンバーのコミュニティリストが取得できます。指定しない場合はAPIを呼び出した自分（閲覧者）のリストを取得します。
+              </p>
 
-              <h3>結果表示</h3>
-              <p>投稿が成功した場合は、投稿データが返ってきます。失敗した場合はエラーコードが返ります。</p>
- 
+<blockquote>http://sns.example.com/api.php/member/community.json?apiKey=APIKEYAPIKEYAPIKEYAPIKEYAPIKEYAPIKEYAPIKEYAPIKEY
+</blockquote>
+
+
+              <p>呼び出しが成功した場合は、次のようなJSONデータが返ります。</p>
+ <a href="http://p.pne.jp/d/201205212203.png"><img src="http://p.pne.jp/d/500/201205212203.png" alt="" /></a>
+
+
+
+
+
 
             </div><!--/span-->
           </div><!--/row-->
