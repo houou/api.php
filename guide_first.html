@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
   <head>
     <meta charset="utf-8">
+    <!-- InstanceBeginEditable name="doctitle" -->
     <title>OpenPNE3 スマートフォンAPI ドキュメント【開発版】</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <!-- InstanceEndEditable -->
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="/api.php/css/bootstrap.css" rel="stylesheet">
-    <link href="/api.php/css/prettify.css" rel="stylesheet">
-    <script src="/api.php/js/prettify.js"></script>
-    <script src="./js/jquery.js"></script>
-    <script >
-    $(function(){
-      $("#t_navi").load("t_navi.html");
-    });
-    </script>
+  <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/prettify.css" rel="stylesheet">
+    <script src="js/prettify.js"></script>
+    <script src="js/jquery.js"></script>
+    
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -30,13 +25,18 @@
         padding: 9px 0;
       }
     </style>
-    <link href="/api.php/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le fav and touch icons -->
+  <!-- InstanceBeginEditable name="head" -->
+  <!-- InstanceEndEditable -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+  body,td,th { font-family: Ubuntu, Tahoma, sans-serif; }
+  </style>
   </head>
 
-  <body onload="prettyPrint()">
-
+<body onload="prettyPrint()">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -45,23 +45,61 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/api.php/">OpenPNE3 スマートフォンAPI ドキュメント【開発版】</a>
+          <a class="brand" href="">OpenPNE3 スマートフォンAPI ドキュメント【開発版】</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/api.php/">Home</a></li>
+              <li class="active"><a href="">Home</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
-    <div class="container-fluid">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div id="t_navi" class="span3">
+	    <div class="well sidebar-nav">
+			  <ul class="nav nav-list">
+			    <li class="nav-header">ガイド</li>
+			    <li><a href="guide_first.html">ファーストステップガイド</a></li>
+				  <li><a href="guide_template.html">テンプレート利用ガイド</a></li>
+			    <li><a href="guide_buildapi.html">API作成ガイド</a></li>
+			
+			    <li class="nav-header">アクティビティ（タイムライン）</li>
+			    <li><a href="activity_search.html">activity/search.json</a></li>
+			    <li><a href="activity_member.html">activity/member.json</a></li>
+			    <li><a href="activity_friends.html">activity/friends.json</a></li>
+			    <li><a href="activity_community.html">activity/community.json</a></li>
+			    <li><a href="activity_post.html">activity/post.json</a></li>
+			    <li><a href="activity_delete.html">activity/delete.json</a></li>
+			    <li><a href="activity_mentions.html">activity/mentions.json</a></li>
+			
+			    <li class="nav-header">メンバー</li>
+			    <li><a href="member_community.html">member/community.json</a></li>
+			    <li><a href="member_search.html">member/search.json</a></li>
+			    <li><a href="member_friend_accept.html">member/friend_accept.json</a></li>
+			    <li><a href="member_friend_request.html">member/friend_request.json</a></li>
+			
+			    <li class="nav-header">コミュニティ</li>
+			    <li><a href="community_search.html">community/search.json</a></li>
+			    <li><a href="community_member.html">community/member.json</a></li>
+			    <li><a href="community_join.html">community/join.json</a></li>
+			
+			    <li class="nav-header">通知センター</li>
+			    <li><a href="push_search.html">push/search.json</a></li>
+			    <li><a href="push_count.html">push/count.json</a></li>
+			    <li><a href="push_read.html">push/read.json</a></li>
+          
+  			  <li class="nav-header">ベータ版API</li>
+				  <li>topic</li>
+					<li>diary</li>
+	        
+			  </ul>
+			</div>
+    </div>
+    <div class="span9">
       <div class="row-fluid">
-        <div id="t_navi" class="span3">_</div>
-        <div class="span9">
-          <div class="row-fluid">
-            <div class="span12">
-              <h2>ファーストステップガイド</h2>
+        <div class="span12">
+          <!-- InstanceBeginEditable name="EditMain" -->              <h2>ファーストステップガイド</h2>
               <p>OpenPNE3.8から新しく導入された、スマートフォンAPI。このAPIはスマートフォンだけでなくPCブラウザからでも、利用できるように設計されています。本ガイドでは、本APIを使うための第一歩をチュートリアル形式で説明します。</p>
 
               <h2>APIでメンバー情報を取得する</h2>
@@ -72,7 +110,8 @@
 
 <div class="alert alert-success"><strong>TIPS</strong> WEB画面にHTMLさえ埋め込めれば、フリーページガジェット、ソースコードの直接編集など、HTML挿入以外でもAPIを呼び出すことができます。</div>
 
-          <img src="http://p.pne.jp/d/201207022247.png" alt="">
+  				
+          <img src="http://p.pne.jp/d/400/201207022247.png" alt="">
 
               <h3>1. JavaScriptコードを入力</h3>
 <p>スマートフォンAPIを利用するJavaScriptコードを入力します。まずは以下のコードすべてをコピーして、HTML挿入のフォームに入力してください。</p>
@@ -134,36 +173,33 @@ $(document).ready(function(){
 
 
 
-
-
-
-            </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
+<!-- InstanceEndEditable -->
+  			</div><!--/span-->
       </div><!--/row-->
+    </div><!--/span-->
+  </div><!--/row-->
 
-      <hr>
+  <hr>
 
-      <footer>
-        <p>&copy; Tejimaya Inc. 2012 All Rights Reserved.</p>
-      </footer>
+  <footer>
+    <p>&copy; Tejimaya Inc. 2012 All Rights Reserved.</p>
+  </footer>
 
-    </div><!--/.fluid-container-->
-    
+</div><!--/.fluid-container-->
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./js/bootstrap-transition.js"></script>
-    <script src="./js/bootstrap-alert.js"></script>
-    <script src="./js/bootstrap-modal.js"></script>
-    <script src="./js/bootstrap-dropdown.js"></script>
-    <script src="./js/bootstrap-scrollspy.js"></script>
-    <script src="./js/bootstrap-tab.js"></script>
-    <script src="./js/bootstrap-tooltip.js"></script>
-    <script src="./js/bootstrap-popover.js"></script>
-    <script src="./js/bootstrap-button.js"></script>
-    <script src="./js/bootstrap-collapse.js"></script>
-    <script src="./js/bootstrap-carousel.js"></script>
-    <script src="./js/bootstrap-typeahead.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
   </body>
-</html>
+<!-- InstanceEnd --></html>

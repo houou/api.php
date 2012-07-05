@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
   <head>
     <meta charset="utf-8">
+    <!-- InstanceBeginEditable name="doctitle" -->
     <title>OpenPNE3 スマートフォンAPI ドキュメント【開発版】</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <!-- InstanceEndEditable -->
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="/api.php/css/bootstrap.css" rel="stylesheet">
-    <script src="./js/jquery.js"></script>
-    <script >
-    $(function(){
-      $("#t_navi").load("t_navi.html");
-    });
-    </script>
+  <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/prettify.css" rel="stylesheet">
+    <script src="js/prettify.js"></script>
+    <script src="js/jquery.js"></script>
+    
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -28,13 +25,18 @@
         padding: 9px 0;
       }
     </style>
-    <link href="/api.php/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le fav and touch icons -->
+  <!-- InstanceBeginEditable name="head" -->
+  <!-- InstanceEndEditable -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+  body,td,th { font-family: Ubuntu, Tahoma, sans-serif; }
+  </style>
   </head>
 
-  <body>
-
+<body onload="prettyPrint()">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -43,52 +45,153 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/api.php/">OpenPNE3 スマートフォンAPI ドキュメント【開発版】</a>
+          <a class="brand" href="">OpenPNE3 スマートフォンAPI ドキュメント【開発版】</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/api.php/">Home</a></li>
+              <li class="active"><a href="">Home</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
-    <div class="container-fluid">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div id="t_navi" class="span3">
+	    <div class="well sidebar-nav">
+			  <ul class="nav nav-list">
+			    <li class="nav-header">ガイド</li>
+			    <li><a href="guide_first.html">ファーストステップガイド</a></li>
+				  <li><a href="guide_template.html">テンプレート利用ガイド</a></li>
+			    <li><a href="guide_buildapi.html">API作成ガイド</a></li>
+			
+			    <li class="nav-header">アクティビティ（タイムライン）</li>
+			    <li><a href="activity_search.html">activity/search.json</a></li>
+			    <li><a href="activity_member.html">activity/member.json</a></li>
+			    <li><a href="activity_friends.html">activity/friends.json</a></li>
+			    <li><a href="activity_community.html">activity/community.json</a></li>
+			    <li><a href="activity_post.html">activity/post.json</a></li>
+			    <li><a href="activity_delete.html">activity/delete.json</a></li>
+			    <li><a href="activity_mentions.html">activity/mentions.json</a></li>
+			
+			    <li class="nav-header">メンバー</li>
+			    <li><a href="member_community.html">member/community.json</a></li>
+			    <li><a href="member_search.html">member/search.json</a></li>
+			    <li><a href="member_friend_accept.html">member/friend_accept.json</a></li>
+			    <li><a href="member_friend_request.html">member/friend_request.json</a></li>
+			
+			    <li class="nav-header">コミュニティ</li>
+			    <li><a href="community_search.html">community/search.json</a></li>
+			    <li><a href="community_member.html">community/member.json</a></li>
+			    <li><a href="community_join.html">community/join.json</a></li>
+			
+			    <li class="nav-header">通知センター</li>
+			    <li><a href="push_search.html">push/search.json</a></li>
+			    <li><a href="push_count.html">push/count.json</a></li>
+			    <li><a href="push_read.html">push/read.json</a></li>
+          
+  			  <li class="nav-header">ベータ版API</li>
+				  <li>topic</li>
+					<li>diary</li>
+	        
+			  </ul>
+			</div>
+    </div>
+    <div class="span9">
       <div class="row-fluid">
-        <div id="t_navi" class="span3">_</div>
-        <div class="span9">
-          <div class="row-fluid">
-            <div class="span12">
-              <h2>member/friend_request.json概要</h2>
-              <p>フレンドリクエストを申請するAPIです。</p>
-            </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
+        <div class="span12">
+          <!-- InstanceBeginEditable name="EditMain" -->
+          
+          
+              <h2>member/friend_request.json 概要</h2>
+              <p>フレンドリクエストを申請します。</p>
+              <p></p>
+
+              <h2>リクエスト</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>パラメータ</th>
+					<th>値</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+
+					<td><code>member_id <span class="label label-important">*必須</span></code></td>
+					<td><b>integer</b></td>
+					<td>フレンドリクエストを承認、あるいは拒否する相手のメンバーIDを指定します。</td>
+				</tr>
+				<tr>
+					<td><code>reject</code></td>
+					<td><b>boolean</b></td>
+					<td>フレンドリクエストを拒否したい場合は、このリクエストの値を<code>true</code>に指定します。</td>
+				</tr>
+			</tbody>
+		</table>
+              </p>
+
+              <h2>レスポンス</h2>
+              <p>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>フィールド名</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>message</code></td>
+					<td><code>status</code>フィールドが<code>error</code>のときにメッセージを返します。</td>
+				</tr>
+			</tbody>
+		</table>
+              </p>
+              <h2>サンプルリクエスト</h2>
+              <pre>$ curl http://example.com/sns/member/friend_accept.json?member_id=1234&reject=true&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+
+              <br />
+
+              <h2>サンプルレスポンス</h2>
+              <p>
+                <a href="/api.php/member/friend_accept.json">member/friend_accept.json</a>
+              </p>
+
+              <div class="alert alert-info">
+              <strong>Heads up!</strong> Google Chromeで「JSONView」という拡張をインストールすると、JSONのサンプルレスポンスがさらに見やすくなります。<br />
+              <a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView をダウンロード</a>
+              </div>
+
+					
+					<!-- InstanceEndEditable -->
+  			</div><!--/span-->
       </div><!--/row-->
+    </div><!--/span-->
+  </div><!--/row-->
 
-      <hr>
+  <hr>
 
-      <footer>
-        <p>&copy; Tejimaya Inc. 2012 All Rights Reserved.</p>
-      </footer>
+  <footer>
+    <p>&copy; Tejimaya Inc. 2012 All Rights Reserved.</p>
+  </footer>
 
-    </div><!--/.fluid-container-->
-    
+</div><!--/.fluid-container-->
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/api.php/js/bootstrap-transition.js"></script>
-    <script src="/api.php/js/bootstrap-alert.js"></script>
-    <script src="/api.php/js/bootstrap-modal.js"></script>
-    <script src="/api.php/js/bootstrap-dropdown.js"></script>
-    <script src="/api.php/js/bootstrap-scrollspy.js"></script>
-    <script src="/api.php/js/bootstrap-tab.js"></script>
-    <script src="/api.php/js/bootstrap-tooltip.js"></script>
-    <script src="/api.php/js/bootstrap-popover.js"></script>
-    <script src="/api.php/js/bootstrap-button.js"></script>
-    <script src="/api.php/js/bootstrap-collapse.js"></script>
-    <script src="/api.php/js/bootstrap-carousel.js"></script>
-    <script src="/api.php/js/bootstrap-typeahead.js"></script>
-
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
   </body>
-</html>
+<!-- InstanceEnd --></html>

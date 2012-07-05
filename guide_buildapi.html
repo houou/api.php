@@ -99,106 +99,19 @@
     <div class="span9">
       <div class="row-fluid">
         <div class="span12">
-          <!-- InstanceBeginEditable name="EditMain" -->
-					
-					
-					
-              <h2>member/search.json 概要</h2>
-              <p>SNSメンバー情報を検索して取得してきます。</p>
-              <p></p>
+          <!-- InstanceBeginEditable name="EditMain" --> 
+                       <h2>API作成ガイド</h2>
+              <p>APIは使うだけでなく、自作することができます。既存のAPIで機能が足りない場合は、本ガイドを参考にしてAPIを拡張してください。</p> 
 
-              <h2>リクエスト</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>パラメータ</th>
-					<th>値</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
+              <h3>方法1 OpenPNE本体にAPIを追加する</h3>
+              <p>まずはOpenPNE本体を直接編集して、新しいAPIを追加する方法を解説します。既存のファイルを編集して、APIエントリを追加するのが一番手っ取り早いです。</p>
 
-					<td><code>target <span class="label label-important">*必須</span></code></td>
-					<td><b>string</b></td>
-					<td>取得したいメンバー情報の、ターゲットを指定します。<br /><code>member</code>と指定するとメンバーそのものの情報が、<br /><code>friend</code>と指定するとメンバーのフレンドリストが、<br /><code>community</code>と指定するとコミュニティの参加者リストが取得できます。</td>
-				</tr>
-				<tr>
-					<td><code>target_id <span class="label label-important">*必須</span></code></td>
-					<td><b>integer</b></td>
-					<td>取得したいメンバー情報の、ターゲットとなるID(コミュニティID、メンバーID)を指定します。</td>
-				</tr>
-			</tbody>
-		</table>
-              </p>
 
-              <h2>レスポンス</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>フィールド名</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><code>id</code></td>
-					<td>メンバーIDを返します。</td>
-				</tr>
 
-				<tr>
-					<td><code>profile_image</code></td>
-					<td>メンバーのプロフィール画像を絶対URLで返します。プロフィール画像が登録されていない場合は、<code>no_image.gif</code>を絶対URLで返します。</td>
-				</tr>
 
-				<tr>
-					<td><code>name</code></td>
-					<td>メンバーのニックネームを返します。</td>
-				</tr>
-
-				<tr>
-					<td><code>friend</code></td>
-					<td>自分とフレンドリンクであれば<code>true</code>、そうでなければ<code>false</code>を返します。</td>
-				</tr>
-				<tr>
-					<td><code>blocking</code></td>
-					<td>自分がアクセスブロックしているメンバーであれば<code>true</code>、そうでなければ<code>false</code>を返します。</td>
-				</tr>
-				<tr>
-					<td><code>self</code></td>
-					<td>このメンバー情報は自分自身のものであれば<code>ture</code>、そうでなければ<code>false</code>を返します。</td>
-				</tr>
-
-				<tr>
-					<td><code>friends_count</code></td>
-					<td>メンバーのフレンドリンクの数を返します</td>
-				</tr>
-				<tr>
-					<td><code>self_introduction</code></td>
-					<td>メンバーのプロフィールにある自己紹介を返します。プロフィール項目に自己紹介が設定されていない場合は<code>false</code>を返します。</td>
-				</tr>
-
-			</tbody>
-		</table>
-              </p>
-
-              <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/sns/member/search.json?target=friend&target_id=1234&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
-              <pre>$ curl http://example.com/sns/member/search.json?target=community&target_id=123&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
-              <br />
-
-              <h2>サンプルレスポンス</h2>
-              <p>
-                <a href="/api.php/member/search.json">member/search.json</a>
-              </p>
-
-					
-					
-					
-					
-					<!-- InstanceEndEditable -->
+              <h3>歩法2 API用のプラグインをつくる</h3>
+              <p>作成したAPIはプラグイン化することで、OpenPNE本体と分離することができます。OpenPNEのバージョンアップに追従したり、コミュニティに公開する場合には、プラグイン化すると便利です。</p>
+<!-- InstanceEndEditable -->
   			</div><!--/span-->
       </div><!--/row-->
     </div><!--/span-->
