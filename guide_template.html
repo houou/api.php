@@ -11,7 +11,7 @@
     <![endif]-->
 
     <!-- Le styles -->
-  <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/prettify.css" rel="stylesheet">
     <script src="js/prettify.js"></script>
     <script src="js/jquery.js"></script>
@@ -26,7 +26,6 @@
       }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
-
     <!-- Le fav and touch icons -->
   <!-- InstanceBeginEditable name="head" -->
   <!-- InstanceEndEditable -->
@@ -37,32 +36,32 @@
   </head>
 
 <body onload="prettyPrint()">
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="">OpenPNE3 スマートフォンAPI ドキュメント【開発版】</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="">Home</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="index.html">OpenPNE3.8 スマートフォンAPI ドキュメント</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><a href="">Home</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
     </div>
-<div class="container-fluid">
-  <div class="row-fluid">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
     <div id="t_navi" class="span3">
 	    <div class="well sidebar-nav">
 			  <ul class="nav nav-list">
 			    <li class="nav-header">ガイド</li>
 			    <li><a href="guide_first.html">ファーストステップガイド</a></li>
 				  <li><a href="guide_template.html">テンプレート利用ガイド</a></li>
-			    <li><a href="guide_buildapi.html">API作成ガイド</a></li>
+			    <li>API作成ガイド</li>
 			
 			    <li class="nav-header">アクティビティ（タイムライン）</li>
 			    <li><a href="activity_search.html">activity/search.json</a></li>
@@ -89,21 +88,152 @@
 			    <li><a href="push_count.html">push/count.json</a></li>
 			    <li><a href="push_read.html">push/read.json</a></li>
           
-  			  <li class="nav-header">ベータ版API</li>
+  			  <li class="nav-header">API(アルファ版)</li>
 				  <li>topic</li>
 					<li>diary</li>
+				  <li>file</li>
 	        
 			  </ul>
 			</div>
     </div>
     <div class="span9">
-      <div class="row-fluid">
-        <div class="span12">
+      <div class="row">
+        <div class="span9">
           <!-- InstanceBeginEditable name="EditMain" -->
                     
 <h2>テンプレート利用ガイド</h2>
-<h2>jQueryTemplate</h2>
-<h2>JSONデータをテンプレートに適用</h2>
+
+<p>OpenPNE3.8ではJavaScriptのテンプレートエンジンとしてjQueryTemplateを利用しています。
+これを利用することで、APIを通じて受け取ったJSONから簡単にHTMLを加工することができます。
+
+</p>
+
+
+<h2>jQuery.tmpl()</h2>
+
+<p>
+jQuery.tmpl()はjQueryのプラグインとして提供されているテンプレートエンジンです。
+<small>※今後、より優れたテンプレートエンジンが登場したら変更する可能性があります。</small>
+</p>
+
+<h2>OpenPNEでの動作フロー</h2>
+
+
+
+
+<ul class="thumbnails">
+  <li class="span8">
+    <div class="thumbnail">
+      <img src="http://p.pne.jp/d/201203221158.png" alt="">
+      <h5>動作フロー</h5>
+      <p>
+1:OpenPNEがHTMLの土台をレンダリングする<br>
+2:JavaScriptからスマートフォンAPIを呼び出す<br>
+3:APIから取得したJSONをテンプレートに流し込む<br>
+4:できあがったHTMLを、jQuery.appned()などで出力する<br>
+</p>
+    </div>
+  </li>
+</ul>
+
+
+
+<h2>メンバー検索ページのサンプル</h2>
+
+<p>
+この動作を示すために、一番簡単な例としてスマートフォンのメンバー検索ページに注目します。
+</p>
+
+
+<ul class="thumbnails">
+  <li class="span4">
+    <div class="thumbnail">
+      <img src="http://p.pne.jp/d/201207062052.png">
+      <h5>4x4アイコン</h5>
+      <p>検索結果を表示。メンバーの顔写真のアイコンが橫4列ずつ表示される。</p>
+    </div>
+  </li>
+</ul>
+
+
+
+<h3>ソースコード解説</h3>
+<p>検索ページを実現する
+<a href="https://github.com/openpne/OpenPNE3/blob/OpenPNE-3.8.0/apps/pc_frontend/modules/member/templates/smtSearchSuccess.php">ソースコード一式</a>
+</p>
+
+<br>
+<br>
+◆テンプレート
+<pre class="prettyprint">
+&lt;script id=&quot;friendListTemplate&quot; type=&quot;text/x-jquery-tmpl&quot;&gt;
+  &lt;div class=&quot;span3&quot;&gt;
+    &lt;div class=&quot;row_memberimg row&quot;&gt;&lt;div class=&quot;span3 center&quot;&gt;&lt;a href=&quot;${profile_url}&quot;&gt;&lt;img src=&quot;${profile_image}&quot; class=&quot;rad10&quot; width=&quot;57&quot; height=&quot;57&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;row_membername font10 row&quot;&gt;&lt;div class=&quot;span3 center&quot;&gt;&lt;a href=&quot;${profile_url}&quot;&gt;${name}&lt;/a&gt; (${friends_count})&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+</pre>
+<p>
+4x4の１つ分のマス目を表現するテンプレートです。4列で自動的に折り返すようになっているので、
+段落切り替えのためのテーブルは必要なく、シンプルな構造になっています。
+</p>
+<br>
+◆JavaScript
+<pre class="prettyprint">
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(function(){
+  $.getJSON( openpne.apiBase + &apos;member/search.json?apiKey=&apos; + openpne.apiKey, function(json) {
+    $result = $(&apos;#friendListTemplate&apos;).tmpl(json.data);
+    $(&apos;#memberFriendList&apos;).html($result);
+    $(&apos;#memberFriendList&apos;).show();
+    $(&apos;#memberFriendListLoading&apos;).hide();
+  });
+  $(&apos;#memberFriendSearch&apos;).keypress(function(){
+    $(&apos;#memberFriendListLoading&apos;).show();
+    $(&apos;#memberFriendList&apos;).hide();
+    $(&apos;#memberFriendList&apos;).empty();
+  });
+  $(&apos;#memberFriendSearch&apos;).blur(function(){
+    var keyword = $(&apos;#memberFriendSearch&apos;).val();
+    var requestData = { keyword: keyword, apiKey: openpne.apiKey };
+    $.getJSON( openpne.apiBase + &apos;member/search.json&apos;, requestData, function(json) {
+      $result = $(&apos;#friendListTemplate&apos;).tmpl(json.data);
+      $(&apos;#memberFriendList&apos;).html($result);
+      $(&apos;#memberFriendList&apos;).show();
+      $(&apos;#memberFriendListLoading&apos;).hide();
+    });
+  });
+});
+&lt;/script&gt;
+</pre>
+<p>
+検索フォームの文字列処理と、検索結果を表示するコントロール部分はJavaScriptで書かれています。
+</p>
+<br>
+◆HTML
+<pre class="prettyprint">
+&lt;hr class=&quot;toumei&quot; /&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;gadget_header span12&quot;&gt;&lt;?php echo __(&apos;Search Members&apos;) ?&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr class=&quot;toumei&quot; /&gt;
+&lt;div class=&quot;row&quot; id=&quot;memberFriendSearchBox&quot;&gt;
+&lt;div class=&quot;input-prepend span12&quot;&gt;
+&lt;span class=&quot;add-on&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;input type=&quot;text&quot; id=&quot;memberFriendSearch&quot; class=&quot;realtime-searchbox&quot; value=&quot;&quot; /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot; id=&quot;memberFriendList&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot; id=&quot;memberFriendListLoading&quot; style=&quot;margin-left: 0; text-align: center;&quot;&gt;
+&lt;?php echo op_image_tag(&apos;ajax-loader.gif&apos;) ?&gt;
+&lt;/div&gt;
+</pre>
+
+<p>
+検索フォームや見出しなどのHTMLはあらかじめHTMLでレンダリングされています。
+</p>
+
 				
 					<!-- InstanceEndEditable -->
   			</div><!--/span-->
@@ -121,17 +251,6 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
+    <script src="js/bootstrap.js"></script>
   </body>
 <!-- InstanceEnd --></html>
