@@ -89,7 +89,8 @@
 			    <li><a href="push_search.html"><i class="icon-chevron-right"></i>push/search.json</a></li>
 			    <li><a href="push_count.html"><i class="icon-chevron-right"></i>push/count.json</a></li>
 			    <li><a href="push_read.html"><i class="icon-chevron-right"></i>push/read.json</a></li>
-          <li class="divider"></li>          
+          <li class="divider"></li>       
+          <!--   
   			  <li class="nav-header">次期バージョン</li>
 
 				  <li class="nav-header">トピック</li>
@@ -115,7 +116,7 @@
   				<li><a href="file_files.html"><i class="icon-chevron-right"></i>file/files</a></li>
   				<li><a href="file_search.html"><i class="icon-chevron-right"></i>file/search</a></li>
   				<li><a href="file_get.htm"><i class="icon-chevron-right"></i>lfile/get</a></li>
-
+-->
 			  </ul>
 			</div>
     </div>
