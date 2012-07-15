@@ -125,115 +125,111 @@
           <!-- InstanceBeginEditable name="EditMain" -->
           
 
-              <h2>activity/post.json 概要</h2>
-              <p>メッセージを送信する時に使用するAPIです。</p>
-              <p></p>
+<h2>activity/post.json 概要</h2>
+<p>メッセージを送信する時に使用するAPIです。</p>
+<p></p>
 
-              <h2>リクエスト</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>パラメータ</th>
-					<th>値</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><span class="label">body</span> <span class="label label-important">*必須</span></td>
-					<td><b>string</b></td>
-					<td>タイムラインの本文を指定します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">public_flag</span></td>
-					<td><b>integer</b></td>
-					<td>タイムラインの公開範囲を指定します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">in_reply_to_activity_id</span></td>
-					<td><b>integer</b></td>
-					<td>タイムラインの返信先IDを指定します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">uri</span></td>
-					<td><b>string</b></td>
-					<td>タイムライン投稿元のURIを指定します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">target</span></td>
-					<td><b>string</b></td>
-					<td>タイムラインの種類を指定します。例えば、コミュニティタイムラインに投稿したい場合は<span class="label">community</span>を指定します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">target_id</span></td>
-					<td><b>integer</b></td>
-					<td>タイムラインの種類のIDを指定します。<span class="label">target</span>が指定されている場合は<span class="label label-important">*必須項目</span>です。</td>
-				</tr>
-			</tbody>
-		</table>
-              </p>
+<h2>リクエスト</h2>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>パラメータ</th>
+      <th>値</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="label">body</span> <span class="label label-important">*必須</span></td>
+      <td><b>string</b></td>
+      <td>タイムラインの本文を指定します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">public_flag</span></td>
+      <td><b>integer</b></td>
+      <td>タイムラインの公開範囲を指定します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">in_reply_to_activity_id</span></td>
+      <td><b>integer</b></td>
+      <td>タイムラインの返信先IDを指定します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">uri</span></td>
+      <td><b>string</b></td>
+      <td>タイムライン投稿元のURIを指定します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">target</span></td>
+      <td><b>string</b></td>
+      <td>タイムラインの種類を指定します。例えば、コミュニティタイムラインに投稿したい場合は<span class="label">community</span>を指定します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">target_id</span></td>
+      <td><b>integer</b></td>
+      <td>タイムラインの種類のIDを指定します。<span class="label">target</span>が指定されている場合は<span class="label label-important">*必須項目</span>です。</td>
+    </tr>
+  </tbody>
+</table>
 
-              <h2>レスポンス</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>フィールド名</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><span class="label">id</span></td>
-					<td>投稿したタイムラインのID（連番）</td>
-				</tr>
+<h2>レスポンス</h2>
+<p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>フィールド名</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="label">id</span></td>
+      <td>投稿したタイムラインのID（連番）</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">member</span></td>
-					<td>投稿したメンバーの情報（詳しくは <a href="/api.php/index.html#common">レスポンスの共通仕様</a> を参照）</td>
-				</tr>
+    <tr>
+      <td><span class="label">member</span></td>
+      <td>投稿したメンバーの情報（詳しくは <a href="/api.php/index.html#common">レスポンスの共通仕様</a> を参照）</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">body</span></td>
-					<td>投稿したタイムラインの本文</td>
-				</tr>
+    <tr>
+      <td><span class="label">body</span></td>
+      <td>投稿したタイムラインの本文</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">body_html</span></td>
-					<td>投稿したタイムラインの本文（HTML版）</td>
-				</tr>
+    <tr>
+      <td><span class="label">body_html</span></td>
+      <td>投稿したタイムラインの本文（HTML版）</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">uri</span></td>
-					<td>投稿したタイムラインの参照URI</td>
-				</tr>
+    <tr>
+      <td><span class="label">uri</span></td>
+      <td>投稿したタイムラインの参照URI</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">source</span></td>
-					<td>投稿したタイムラインの投稿元の名前</td>
-				</tr>
+    <tr>
+      <td><span class="label">source</span></td>
+      <td>投稿したタイムラインの投稿元の名前</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">source_uri</span></td>
-					<td>投稿したタイムラインの投稿元のURL</td>
-				</tr>
+    <tr>
+      <td><span class="label">source_uri</span></td>
+      <td>投稿したタイムラインの投稿元のURL</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">created_at</span></td>
-					<td>投稿時間</td>
-				</tr>
-			</tbody>
-		</table>
-              </p>
+    <tr>
+      <td><span class="label">created_at</span></td>
+      <td>投稿時間</td>
+    </tr>
+  </tbody>
+</table>
+<h2>サンプルリクエスト</h2>
+<pre>$ curl http://example.com/api.php/activity/post.json?body=テスト投稿&public_flag=1&target=community&target_id=1&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
-              <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/api.php/activity/post.json?body=テスト投稿&public_flag=1&target=community&target_id=1&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+<br />
 
-              <br />
-
-              <h2>サンプルレスポンス</h2>
-<pre>
+<h2>サンプルレスポンス</h2>
+<pre class="prettyprint linenums">
 {
     "status": "success",
     "data": {

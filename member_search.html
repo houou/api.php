@@ -126,100 +126,123 @@
 					
 					
 					
-              <h2>member/search.json 概要</h2>
-              <p>SNSメンバー情報を検索して取得してきます。</p>
-              <p></p>
+<h2>member/search.json 概要</h2>
+<p>SNSメンバー情報を検索して取得してきます。</p>
 
-              <h2>リクエスト</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>パラメータ</th>
-					<th>値</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
+<h2>リクエスト</h2>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>パラメータ</th>
+      <th>値</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
 
-					<td><span class="label">target <span class="label label-important">*必須</span></span></td>
-					<td><b>string</b></td>
-					<td>取得したいメンバー情報の、ターゲットを指定します。<br /><span class="label">member</span>と指定するとメンバーそのものの情報が、<br /><span class="label">friend</span>と指定するとメンバーのフレンドリストが、<br /><span class="label">community</span>と指定するとコミュニティの参加者リストが取得できます。</td>
-				</tr>
-				<tr>
-					<td><span class="label">target_id <span class="label label-important">*必須</span></span></td>
-					<td><b>integer</b></td>
-					<td>取得したいメンバー情報の、ターゲットとなるID(コミュニティID、メンバーID)を指定します。</td>
-				</tr>
-			</tbody>
-		</table>
-              </p>
+      <td><span class="label">target</span><span class="label label-important">*必須</span></td>
+      <td><b>string</b></td>
+      <td>取得したいメンバー情報の、ターゲットを指定します。<br /><span class="label">member</span>と指定するとメンバーそのものの情報が、<br /><span class="label">friend</span>と指定するとメンバーのフレンドリストが、<br /><span class="label">community</span>と指定するとコミュニティの参加者リストが取得できます。</td>
+    </tr>
+    <tr>
+      <td><span class="label">target_id</span> <span class="label label-important">*必須</span></td>
+      <td><b>integer</b></td>
+      <td>取得したいメンバー情報の、ターゲットとなるID(コミュニティID、メンバーID)を指定します。</td>
+    </tr>
+  </tbody>
+</table>
 
-              <h2>レスポンス</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>フィールド名</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><span class="label">id</span></td>
-					<td>メンバーIDを返します。</td>
-				</tr>
+<h2>レスポンス</h2>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>フィールド名</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="label">id</span></td>
+      <td>メンバーIDを返します。</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">profile_image</span></td>
-					<td>メンバーのプロフィール画像を絶対URLで返します。プロフィール画像が登録されていない場合は、<span class="label">no_image.gif</span>を絶対URLで返します。</td>
-				</tr>
+    <tr>
+      <td><span class="label">profile_image</span></td>
+      <td>メンバーのプロフィール画像を絶対URLで返します。プロフィール画像が登録されていない場合は、<span class="label">no_image.gif</span>を絶対URLで返します。</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">name</span></td>
-					<td>メンバーのニックネームを返します。</td>
-				</tr>
+    <tr>
+      <td><span class="label">name</span></td>
+      <td>メンバーのニックネームを返します。</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">friend</span></td>
-					<td>自分とフレンドリンクであれば<span class="label">true</span>、そうでなければ<span class="label">false</span>を返します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">blocking</span></td>
-					<td>自分がアクセスブロックしているメンバーであれば<span class="label">true</span>、そうでなければ<span class="label">false</span>を返します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">self</span></td>
-					<td>このメンバー情報は自分自身のものであれば<span class="label">ture</span>、そうでなければ<span class="label">false</span>を返します。</td>
-				</tr>
+    <tr>
+      <td><span class="label">friend</span></td>
+      <td>自分とフレンドリンクであれば<span class="label">true</span>、そうでなければ<span class="label">false</span>を返します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">blocking</span></td>
+      <td>自分がアクセスブロックしているメンバーであれば<span class="label">true</span>、そうでなければ<span class="label">false</span>を返します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">self</span></td>
+      <td>このメンバー情報は自分自身のものであれば<span class="label">ture</span>、そうでなければ<span class="label">false</span>を返します。</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">friends_count</span></td>
-					<td>メンバーのフレンドリンクの数を返します</td>
-				</tr>
-				<tr>
-					<td><span class="label">self_introduction</span></td>
-					<td>メンバーのプロフィールにある自己紹介を返します。プロフィール項目に自己紹介が設定されていない場合は<span class="label">false</span>を返します。</td>
-				</tr>
+    <tr>
+      <td><span class="label">friends_count</span></td>
+      <td>メンバーのフレンドリンクの数を返します</td>
+    </tr>
+    <tr>
+      <td><span class="label">self_introduction</span></td>
+      <td>メンバーのプロフィールにある自己紹介を返します。プロフィール項目に自己紹介が設定されていない場合は<span class="label">false</span>を返します。</td>
+    </tr>
 
-			</tbody>
-		</table>
-              </p>
+  </tbody>
+</table>
 
-              <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/api.php/member/search.json?target=friend&target_id=1234&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
-              <pre>$ curl http://example.com/api.php/member/search.json?target=community&target_id=123&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
-              <br />
+<h2>サンプルリクエスト</h2>
+<pre>$ curl http://example.com/api.php/member/search.json?target=friend&target_id=1234&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+<pre>$ curl http://example.com/api.php/member/search.json?target=community&target_id=123&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+<br />
 
-              <h2>サンプルレスポンス</h2>
-              <p>
-                <a href="/api.php/member/search.json">member/search.json</a>
-              </p>
+<h2>サンプルレスポンス</h2>
 
-					
-					
-					
+<pre class="prettyprint linenums">
+{
+    "data": [
+        {
+            "blocking": false, 
+            "friend": true, 
+            "friends_count": 5, 
+            "id": "6", 
+            "name": "ゆーだい", 
+            "profile_image": "http://38.openpne.jp/cache/img/png/w48_h48/m_6_3099bc9e91e6ba6c8125657cdd2b7ed6726ba3f9_png.png", 
+            "profile_url": "http://38.openpne.jp/member/6", 
+            "screen_name": "yudai1999", 
+            "self": false, 
+            "self_introduction": "Net-Top http://net-top.jp/ 管理人のゆーだいこと園田 裕大です。
+OpenPNEと株式会社手嶋屋、その中の人にいつもお世話になっております。
+お問い合わせ: webmaster@net-top.jp"
+        }, 
+        {
+            "blocking": false, 
+            "friend": false, 
+            "friends_count": 1, 
+            "id": "43", 
+            "name": "test", 
+            "profile_image": "http://38.openpne.jp/images/no_image.gif", 
+            "profile_url": "http://38.openpne.jp/member/43", 
+            "screen_name": "sns@example.com", 
+            "self": false, 
+            "self_introduction": ""
+        }
+    ], 
+    "status": "success"
+}
+
+</pre>
 					
 					<!-- InstanceEndEditable -->
   			</div><!--/span-->

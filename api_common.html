@@ -124,15 +124,36 @@
         <div class="span9">
           <!-- InstanceBeginEditable name="EditMain" -->
           
-          <h2>API共通仕様</h2>
-          <p>すべてのAPIに共通する仕様。</p>
+<h2>API共通仕様</h2>
+<p>認証、レスポンスコード、エラー処理などの共通仕様を説明します。</p>
 
-          <h2>認証方法</h2>
-          <h2>レスポンスコード</h2>
+<h2>認証方法</h2>
+<h3>apiKey方式</h3>
+<img src="http://p.pne.jp/d/529/201202081553.png" alt="" />
+<p>OpenPNE3.8からは、ログイン後の全ページに、図のようなapiKeyが埋め込まれています。
+  スマートフォンAPIでは、このキーを利用して、APIアクセスを行います。</p>
 
+<h2>共通エラー処理</h2>
+<p>可能な限りHTTPの共通エラーレスポンスコードに準拠したエラーコードを返します。</p>
 
+<h3>認証失敗時</h3>
+<p>HTTPステータスコード401が返ります。</p>
 
-					
+<h3>該当するAPIが見つからない</h3>
+<p>HTTPステータスコード404が返ります。</p>
+
+<h3>リクエストパラメータが不十分</h3>
+<p>HTTPステータスコード400が返ります。
+※エラーメッセージが含まれる場合は、200を返し、JSON形式でレスポンスメッセージを出力します。
+</p>
+<h2>レスポンスメッセージ</h2>
+<p>スマートフォンAPIは共通して、status / message のデータを出力します。</p>
+<p>
+<span class="label">status</span>:API呼び出しの成功可否を返します。success / error。
+</p>
+<p>
+<span class="label">message</span>:エラー発生時に、エラーの内容を説明します。 例：「target_idが指定されていません。」
+</p>				
 					<!-- InstanceEndEditable -->
   			</div><!--/span-->
       </div><!--/row-->

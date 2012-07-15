@@ -125,108 +125,220 @@
           <!-- InstanceBeginEditable name="EditMain" -->
           
 
-              <h2>member/community.json 概要</h2>
-              <p>メンバーのコミュニティ参加状況を取得します。</p>
-              <p></p>
+<h2>member/community.json 概要</h2>
+<p>メンバーのコミュニティ参加状況を取得します。</p>
+<p></p>
 
-              <h2>リクエスト</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>パラメータ</th>
-					<th>値</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
+<h2>リクエスト</h2>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>パラメータ</th>
+      <th>値</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
 
-					<td><span class="label">member_id <span class="label label-important">*必須</span></span></td>
-					<td><b>integer</b></td>
-					<td>取得したいメンバーIDを指定します。</td>
-				</tr>
-			</tbody>
-		</table>
-              </p>
+      <td><span class="label">member_id</span> <span class="label label-important">*必須</span></td>
+      <td><b>integer</b></td>
+      <td>取得したいメンバーIDを指定します。</td>
+    </tr>
+  </tbody>
+</table>
 
-              <h2>レスポンス</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>フィールド名</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><span class="label">id</span></td>
-					<td>コミュニティのID</td>
-				</tr>
+<h2>レスポンス</h2>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>フィールド名</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="label">id</span></td>
+      <td>コミュニティのID</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">name</span></td>
-					<td>コミュニティの名前</td>
-				</tr>
-				<tr>
-					<td><span class="label">category</span></td>
-					<td>コミュニティのカテゴリ</td>
-				</tr>
-				<tr>
-					<td><span class="label">community_url</span></td>
-					<td>コミュニティTOPのURL</td>
-				</tr>
-				<tr>
-					<td><span class="label">community_image_url</span></td>
-					<td>コミュニティイメージ画像のURL</td>
-				</tr>
+    <tr>
+      <td><span class="label">name</span></td>
+      <td>コミュニティの名前</td>
+    </tr>
+    <tr>
+      <td><span class="label">category</span></td>
+      <td>コミュニティのカテゴリ</td>
+    </tr>
+    <tr>
+      <td><span class="label">community_url</span></td>
+      <td>コミュニティTOPのURL</td>
+    </tr>
+    <tr>
+      <td><span class="label">community_image_url</span></td>
+      <td>コミュニティイメージ画像のURL</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">joining</span></td>
-					<td>このコミュニティに参加していれば<span class="label">true</span>, そうでなければ<span class="label">false</span>を返します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">admin</span></td>
-					<td>このコミュニティの管理人であれば<span class="label">true</span>, そうでなければ<span class="label">false</span>を返します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">sub_admin</span></td>
-					<td>このコミュニティの副管理人であれば<span class="label">true</span>, そうでなければ<span class="label">false</span>を返します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">created_at</span></td>
-					<td>コミュニティが作成された日付</td>
-				</tr>
-				<tr>
-					<td><span class="label">admin_member</span></td>
-					<td>コミュニティ管理人のメンバー情報（詳しくは <a href="/api.php/index.html#common">レスポンスの共通仕様</a> を参照）</td>
-				</tr>
-				<tr>
-					<td><span class="label">member_count</span></td>
-					<td>コミュニティ参加者の数</td>
-				</tr>
-				<tr>
-					<td><span class="label">public_flag</span></td>
-					<td>コミュニティの公開範囲</td>
-				</tr>
-				<tr>
-					<td><span class="label">register_policy</span></td>
-					<td>コミュニティの参加条件</td>
-				</tr>
-			</tbody>
-		</table>
-              </p>
-              <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/api.php/member/communities.json?member_id=1234&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+    <tr>
+      <td><span class="label">joining</span></td>
+      <td>このコミュニティに参加していれば<span class="label">true</span>, そうでなければ<span class="label">false</span>を返します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">admin</span></td>
+      <td>このコミュニティの管理人であれば<span class="label">true</span>, そうでなければ<span class="label">false</span>を返します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">sub_admin</span></td>
+      <td>このコミュニティの副管理人であれば<span class="label">true</span>, そうでなければ<span class="label">false</span>を返します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">created_at</span></td>
+      <td>コミュニティが作成された日付</td>
+    </tr>
+    <tr>
+      <td><span class="label">admin_member</span></td>
+      <td>コミュニティ管理人のメンバー情報（詳しくは <a href="/api.php/index.html#common">レスポンスの共通仕様</a> を参照）</td>
+    </tr>
+    <tr>
+      <td><span class="label">member_count</span></td>
+      <td>コミュニティ参加者の数</td>
+    </tr>
+    <tr>
+      <td><span class="label">public_flag</span></td>
+      <td>コミュニティの公開範囲</td>
+    </tr>
+    <tr>
+      <td><span class="label">register_policy</span></td>
+      <td>コミュニティの参加条件</td>
+    </tr>
+  </tbody>
+</table>
 
-              <br />
+<h2>サンプルリクエスト</h2>
+<pre>$ curl http://example.com/api.php/member/community.json?member_id=1234&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
-              <h2>サンプルレスポンス</h2>
-              <p>
-                <a href="/api.php/member/communities.json">member/communities.json</a>
-              </p>
+<br />
 
+<h2>サンプルレスポンス</h2>
+<pre class="prettyprint linenums">
+{
+    "data": [
+        {
+            "admin": false, 
+            "admin_member": {
+                "blocking": false, 
+                "friend": false, 
+                "friends_count": 2, 
+                "id": "1", 
+                "name": "OpenPNE君", 
+                "profile_image": "http://38.openpne.jp/images/no_image.gif", 
+                "profile_url": "http://38.openpne.jp/member/1", 
+                "screen_name": "OpenPNE君", 
+                "self": false, 
+                "self_introduction": "よろしくお願いします。"
+            }, 
+            "category": "公式", 
+            "community_image_url": "http://38.openpne.jp/cache/img/png/w48_h48/c_1_b7992883ae255f03c998ddfbf30b9e77b5bc2907_png.png", 
+            "community_url": "http://38.openpne.jp/community/1", 
+            "created_at": "Fri, 18 May 2012 08:20:28 +0000", 
+            "description": "OpenPNE3に関する質問コミュニティです。", 
+            "id": "1", 
+            "joining": true, 
+            "member_count": 39, 
+            "name": "Ver3用 Q&amp;A", 
+            "public_flag": "public", 
+            "register_policy": "open", 
+            "sub_admin": false
+        }, 
+        {
+            "admin": false, 
+            "admin_member": {
+                "blocking": false, 
+                "friend": false, 
+                "friends_count": 2, 
+                "id": "1", 
+                "name": "OpenPNE君", 
+                "profile_image": "http://38.openpne.jp/images/no_image.gif", 
+                "profile_url": "http://38.openpne.jp/member/1", 
+                "screen_name": "OpenPNE君", 
+                "self": false, 
+                "self_introduction": "よろしくお願いします。"
+            }, 
+            "category": "公式", 
+            "community_image_url": "http://38.openpne.jp/cache/img/png/w48_h48/c_2_bd2905af1caf39d56577086832717d3808ba1d3b_png.png", 
+            "community_url": "http://38.openpne.jp/community/2", 
+            "created_at": "Fri, 18 May 2012 10:12:54 +0000", 
+            "description": "OpenPNE2用質問コミュニティです。", 
+            "id": "2", 
+            "joining": true, 
+            "member_count": 39, 
+            "name": "Ver2用 Q&amp;A", 
+            "public_flag": "public", 
+            "register_policy": "open", 
+            "sub_admin": false
+        }, 
+        {
+            "admin": false, 
+            "admin_member": {
+                "blocking": false, 
+                "friend": false, 
+                "friends_count": 2, 
+                "id": "1", 
+                "name": "OpenPNE君", 
+                "profile_image": "http://38.openpne.jp/images/no_image.gif", 
+                "profile_url": "http://38.openpne.jp/member/1", 
+                "screen_name": "OpenPNE君", 
+                "self": false, 
+                "self_introduction": "よろしくお願いします。"
+            }, 
+            "category": "公式", 
+            "community_image_url": "http://38.openpne.jp/cache/img/png/w48_h48/c_3_e8639d4549a8a627716dba3b2673e753d20a77bd_png.png", 
+            "community_url": "http://38.openpne.jp/community/3", 
+            "created_at": "Tue, 22 May 2012 02:56:21 +0000", 
+            "description": "※5/23から動作開始予定です
+
+フレンドリンク歓迎のコミュニティです。
+コミュニティメンバー同士は自動的にリンクされます。
+", 
+            "id": "3", 
+            "joining": true, 
+            "member_count": 2, 
+            "name": "リンク歓迎", 
+            "public_flag": "public", 
+            "register_policy": "open", 
+            "sub_admin": false
+        }, 
+        {
+            "admin": true, 
+            "admin_member": {
+                "blocking": false, 
+                "friend": false, 
+                "friends_count": 2, 
+                "id": "2", 
+                "name": "手嶋", 
+                "profile_image": "http://38.openpne.jp/cache/img/jpg/w48_h48/m_2_f3226916511a70ff5df123ec019c331c99b10ac8_jpg.jpg", 
+                "profile_url": "http://38.openpne.jp/member/2", 
+                "screen_name": "tejima", 
+                "self": true, 
+                "self_introduction": "手嶋です"
+            }, 
+            "category": "公式", 
+            "community_image_url": "http://38.openpne.jp/cache/img/png/w48_h48/c_4_8cf1f2af52e737d15992808781a08e2394b5c9b3_png.png", 
+            "community_url": "http://38.openpne.jp/community/4", 
+            "created_at": "Tue, 22 May 2012 15:55:13 +0000", 
+            "description": "全員でOpenPNEの改善について、発想、開発していくためのコミュニティです。", 
+            "id": "4", 
+            "joining": true, 
+            "member_count": 39, 
+            "name": "全員集合", 
+            "public_flag": "public", 
+            "register_policy": "open", 
+            "sub_admin": false
+        }
+    ], 
+    "status": "success"
+}
+</pre>
 					
 					<!-- InstanceEndEditable -->
   			</div><!--/span-->

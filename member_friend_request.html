@@ -125,67 +125,58 @@
           <!-- InstanceBeginEditable name="EditMain" -->
           
           
-              <h2>member/friend_request.json 概要</h2>
-              <p>フレンドリクエストを申請します。</p>
-              <p></p>
+<h2>member/friend_request.json 概要</h2>
+<p>フレンドリクエストを申請します。</p>
+<p></p>
 
-              <h2>リクエスト</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>パラメータ</th>
-					<th>値</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
+<h2>リクエスト</h2>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>パラメータ</th>
+      <th>値</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
 
-					<td><span class="label">member_id <span class="label label-important">*必須</span></span></td>
-					<td><b>integer</b></td>
-					<td>フレンドリクエストを承認、あるいは拒否する相手のメンバーIDを指定します。</td>
-				</tr>
-				<tr>
-					<td><span class="label">reject</span></td>
-					<td><b>boolean</b></td>
-					<td>フレンドリクエストを拒否したい場合は、このリクエストの値を<span class="label">true</span>に指定します。</td>
-				</tr>
-			</tbody>
-		</table>
-              </p>
+      <td><span class="label">member_id</span> <span class="label label-important">*必須</span></td>
+      <td><b>integer</b></td>
+      <td>フレンドリクエストを承認、あるいは拒否する相手のメンバーIDを指定します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">reject</span></td>
+      <td><b>boolean</b></td>
+      <td>フレンドリクエストを拒否したい場合は、このリクエストの値を<span class="label">true</span>に指定します。</td>
+    </tr>
+  </tbody>
+</table>
 
-              <h2>レスポンス</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>フィールド名</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><span class="label">message</span></td>
-					<td><span class="label">status</span>フィールドが<span class="label">error</span>のときにメッセージを返します。</td>
-				</tr>
-			</tbody>
-		</table>
-              </p>
-              <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/api.php/member/friend_accept.json?member_id=1234&reject=true&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+<h2>レスポンス</h2>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>フィールド名</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="label">message</span></td>
+      <td><span class="label">status</span>フィールドが<span class="label">error</span>のときにメッセージを返します。</td>
+    </tr>
+  </tbody>
+</table>
+<h2>サンプルリクエスト</h2>
+<pre>$ curl http://example.com/api.php/member/friend_accept.json?member_id=1234&reject=true&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
-              <br />
+<br />
 
-              <h2>サンプルレスポンス</h2>
-              <p>
-                <a href="/api.php/member/friend_accept.json">member/friend_accept.json</a>
-              </p>
+<h2>サンプルレスポンス</h2>
 
-              <div class="alert alert-info">
-              <strong>Heads up!</strong> Google Chromeで「JSONView」という拡張をインストールすると、JSONのサンプルレスポンスがさらに見やすくなります。<br />
-              <a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView をダウンロード</a>
-              </div>
+<pre class="prettyprint linenums">{"status":"success"}</pre>
+
 
 					
 					<!-- InstanceEndEditable -->

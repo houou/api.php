@@ -218,14 +218,74 @@
               </p>
 
               <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/api.php/community/search.json?keyword=OpenPNE&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+              <pre>$ curl http://example.com/api.php/community/search.json?keyword=Q&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
               <br />
 
               <h2>サンプルレスポンス</h2>
-              <p>
-                <a href="/api.php/community/search.json">community/search.json</a>
-              </p>
+
+<pre class="prettyprint linenums">
+{
+    "data": [
+        {
+            "admin": false, 
+            "admin_member": {
+                "blocking": false, 
+                "friend": false, 
+                "friends_count": 2, 
+                "id": "1", 
+                "name": "OpenPNE君", 
+                "profile_image": "http://38.openpne.jp/images/no_image.gif", 
+                "profile_url": "http://38.openpne.jp/member/1", 
+                "screen_name": "OpenPNE君", 
+                "self": false, 
+                "self_introduction": "よろしくお願いします。"
+            }, 
+            "category": "公式", 
+            "community_image_url": "http://38.openpne.jp/cache/img/png/w48_h48/c_1_b7992883ae255f03c998ddfbf30b9e77b5bc2907_png.png", 
+            "community_url": "http://38.openpne.jp/community/1", 
+            "created_at": "Fri, 18 May 2012 08:20:28 +0000", 
+            "description": "OpenPNE3に関する質問コミュニティです。", 
+            "id": "1", 
+            "joining": true, 
+            "member_count": 39, 
+            "name": "Ver3用 Q&amp;A", 
+            "public_flag": "public", 
+            "register_policy": "open", 
+            "sub_admin": false
+        }, 
+        {
+            "admin": false, 
+            "admin_member": {
+                "blocking": false, 
+                "friend": false, 
+                "friends_count": 2, 
+                "id": "1", 
+                "name": "OpenPNE君", 
+                "profile_image": "http://38.openpne.jp/images/no_image.gif", 
+                "profile_url": "http://38.openpne.jp/member/1", 
+                "screen_name": "OpenPNE君", 
+                "self": false, 
+                "self_introduction": "よろしくお願いします。"
+            }, 
+            "category": "公式", 
+            "community_image_url": "http://38.openpne.jp/cache/img/png/w48_h48/c_2_bd2905af1caf39d56577086832717d3808ba1d3b_png.png", 
+            "community_url": "http://38.openpne.jp/community/2", 
+            "created_at": "Fri, 18 May 2012 10:12:54 +0000", 
+            "description": "OpenPNE2用質問コミュニティです。", 
+            "id": "2", 
+            "joining": true, 
+            "member_count": 39, 
+            "name": "Ver2用 Q&amp;A", 
+            "public_flag": "public", 
+            "register_policy": "open", 
+            "sub_admin": false
+        }
+    ], 
+    "status": "success"
+}
+
+</pre>
 
               <div class="alert alert-info">
               <strong>Heads up!</strong> Google Chromeで「JSONView」という拡張をインストールすると、JSONのサンプルレスポンスがさらに見やすくなります。<br />

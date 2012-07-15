@@ -124,89 +124,107 @@
         <div class="span9">
           <!-- InstanceBeginEditable name="EditMain" -->
 					
-					              <h2>push/search.json 概要</h2>
-              <p>ユーザーの通知を取得します。</p>
-              <p></p>
+<h2>push/search.json 概要</h2>
+<p>ユーザーの通知を取得します。</p>
 
-              <h2>リクエスト</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>パラメータ</th>
-					<th>値</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
-              </p>
+<h2>リクエスト</h2>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>パラメータ</th>
+      <th>値</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 
-              <h2>レスポンス</h2>
-              <p>
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<tr>
-					<th>フィールド名</th>
-					<th>説明</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><span class="label">id</span></td>
-					<td>通知のID</td>
-				</tr>
+<h2>レスポンス</h2>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>フィールド名</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="label">id</span></td>
+      <td>通知のID</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">body</span></td>
-					<td>通知の本文</td>
-				</tr>
+    <tr>
+      <td><span class="label">body</span></td>
+      <td>通知の本文</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">category</span></td>
-					<td>通知のカテゴリ。<span class="label">link</span>、<span class="label">message</span>、<span class="label">other</span>の３種類があります。</td>
-				</tr>
+    <tr>
+      <td><span class="label">category</span></td>
+      <td>通知のカテゴリ。<span class="label">link</span>、<span class="label">message</span>、<span class="label">other</span>の３種類があります。</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">unread</span></td>
-					<td>通知が未読であれば、<span class="label">true</span>、そうでなければ<span class="label">false</span>を返します。</td>
-				</tr>
+    <tr>
+      <td><span class="label">unread</span></td>
+      <td>通知が未読であれば、<span class="label">true</span>、そうでなければ<span class="label">false</span>を返します。</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">icon_url</span></td>
-					<td>通知元の画像URL。デフォルトは<span class="label">no_image.gif</span>のアイコンを返します。</td>
-				</tr>
+    <tr>
+      <td><span class="label">icon_url</span></td>
+      <td>通知元の画像URL。デフォルトは<span class="label">no_image.gif</span>のアイコンを返します。</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">url</span></td>
-					<td>通知先のURL</td>
-				</tr>
+    <tr>
+      <td><span class="label">url</span></td>
+      <td>通知先のURL</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">member_id_from</span></td>
-					<td>通知元のユーザー。ただし、通知元が必ずしもSNSのユーザーからであるとは限りません。</td>
-				</tr>
+    <tr>
+      <td><span class="label">member_id_from</span></td>
+      <td>通知元のユーザー。ただし、通知元が必ずしもSNSのユーザーからであるとは限りません。</td>
+    </tr>
 
-				<tr>
-					<td><span class="label">created_at</span></td>
-					<td>通知された日時。</td>
-				</tr>
-			</tbody>
-		</table>
-              </p>
+    <tr>
+      <td><span class="label">created_at</span></td>
+      <td>通知された日時。</td>
+    </tr>
+  </tbody>
+</table>
 
-              <h2>サンプルリクエスト</h2>
-              <pre>$ curl http://example.com/api.php/push/search.json?apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+<h2>サンプルリクエスト</h2>
+<pre>$ curl http://example.com/api.php/push/search.json?apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
-              <br />
+<br />
 
-              <h2>サンプルレスポンス</h2>
-              <p>
-                <a href="/api.php/push/search.json">push/search.json</a>
-              </p>
+<h2>サンプルレスポンス</h2>
+<pre class="prettyprint linenums">
+{
+    "data": [
+        {
+            "body": "Do you accept friend request?", 
+            "category": "link", 
+            "created_at": "Thu, 01 Jan 1970 09:00:00 +0900", 
+            "icon_url": "http://38.openpne.jp/images/no_image.gif", 
+            "id": "42", 
+            "member_id_from": "4", 
+            "unread": false, 
+            "url": null
+        }, 
+        {
+            "body": "Do you accept friend request?", 
+            "category": "link", 
+            "created_at": "Thu, 01 Jan 1970 09:00:00 +0900", 
+            "icon_url": "http://38.openpne.jp/cache/img/png/w48_h48/m_6_3099bc9e91e6ba6c8125657cdd2b7ed6726ba3f9_png.png", 
+            "id": "86", 
+            "member_id_from": "6", 
+            "unread": false, 
+            "url": null
+        }
+    ], 
+    "status": "success"
+}
+</pre>
 
-					
 					<!-- InstanceEndEditable -->
   			</div><!--/span-->
       </div><!--/row-->
