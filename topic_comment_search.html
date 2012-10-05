@@ -126,8 +126,8 @@
           <!-- InstanceBeginEditable name="EditMain" -->
           
 
-<h2>diary/search.json 概要</h2>
-<p>日記一覧・日記表示</p>
+<h2>topic_comment/search.json 概要</h2>
+<p>トピックコメント一覧</p>
 <p></p>
 
 <h2>リクエスト</h2>
@@ -141,20 +141,24 @@
   </thead>
   <tbody>
     <tr>
-      <td><span class="label">format</span></td>
-      <td><b>string</b></td>
-      <td>取得フォーマットを指定します。このフィールドがない場合はnormalフォーマットになります。miniの場合のみ<span class="label label-important">*必須</span>です。
-          (normal:一件の日記を取得 mini:日記のリストを取得</td>
+      <td><span class="label">community_topic_id</span> <span class="label label-important">*必須</span></td>
+      <td><b>integer</b></td>
+      <td>トピックIDを指定します。</td>
     </tr>
     <tr>
-      <td><span class="label">id</span></td>
+      <td><span class="label">max_id</span></td>
       <td><b>integer</b></td>
-      <td>formatがnormalの場合は日記IDが<span class="label label-important">*必須</span>です｡formatがminiの場合はメンバーIDを指定するか､もしくは何も指定しません｡</td>
+      <td>取得したいコメントIDの最大値を指定します。</td>
     </tr>
     <tr>
-      <td><span class="label">page</span></td>
+      <td><span class="label">since_id</span></td>
       <td><b>integer</b></td>
-      <td>formatがminiで､2ページ目以降を読む場合は<span class="label label-important">*必須</span>です｡</td>
+      <td>取得したいコメントIDの最小値を指定します。</td>
+    </tr>
+    <tr>
+      <td><span class="label">count</span></td>
+      <td><b>integer</b></td>
+      <td>取得したいコメントの、取得件数を指定します。このパラメータを指定しなかった場合のデフォルトは15です。</td>
     </tr>
   </tbody>
 </table>
@@ -166,280 +170,84 @@
     <tr>
       <th>フィールド名</th>
       <th>説明</th>
-      <th>normalフォーマット</th>
-      <th>miniフォーマット</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><span class="label">id</span></td>
-      <td>日記の記事ID</td>
-      <td>○</td>
-      <td>○</td>
+      <td>コメントID</td>
     </tr>
 
     <tr>
       <td><span class="label">member</span></td>
-      <td>投稿したメンバー情報(詳しくはレスポンス共通仕様を参照)</td>
-      <td>○</td>
-      <td>○</td>
-    </tr>
-
-    <tr>
-      <td><span class="label">title</span></td>
-      <td>日記のタイトル</td>
-      <td>○</td>
-      <td>○</td>
+      <td>投稿したメンバーの情報(詳しくは レスポンスの共通仕様 を参照)</td>
     </tr>
 
     <tr>
       <td><span class="label">body</span></td>
-      <td>日記の本文</td>
-      <td>○</td>
-      <td>○</td>
-    </tr>
-
-    <tr>
-      <td><span class="label">body_short</span></td>
-      <td>日記の本文を60文字に切り詰めたもの</td>
-      <td>○</td>
-      <td>○</td>
-    </tr>
-
-    <tr>
-      <td><span class="label">public_flag</span></td>
-      <td>日記の公開範囲</td>
-      <td>○</td>
-      <td>○</td>
-    </tr>
-
-    <tr>
-      <td><span class="label">ago</span></td>
-      <td>日記の投稿時間を経過時間で表したもの(何秒前、何分前など)</td>
-      <td>○</td>
-      <td>○</td>
+      <td>コメントの本文</td>
     </tr>
 
     <tr>
       <td><span class="label">created_at</span></td>
-      <td>日記の作成時間</td>
-      <td>○</td>
-      <td>○</td>
-    </tr>
-
-    <tr>
-      <td><span class="label">images</span></td>
-      <td>日記に添付された画像のリスト</td>
-      <td>○</td>
-      <td></td>
-    </tr>
-
-    <tr>
-      <td><span class="label">prev</span></td>
-      <td>1つ前の日記ID</td>
-      <td>○</td>
-      <td></td>
-    </tr>
-
-    <tr>
-      <td><span class="label">next</span></td>
-      <td>1つ後の日記ID</td>
-      <td>○</td>
-      <td></td>
+      <td>コメントの作成時間</td>
     </tr>
 
     <tr>
       <td><span class="label">editable</span></td>
-      <td>日記が編集可能どうかのフラグ</td>
-      <td>○</td>
-      <td></td>
+      <td>コメントを削除可能かどうかのフラグ</td>
     </tr>
   </tbody>
 </table>
 
 
-<h2>サンプルリクエスト normal</h2>
-<pre>$ curl http://example.com/api.php/diary/search.json?apiKey=a6a0fb34aeb63036883323875c4d5103a88bd266b1cb5cfcbef3df276a9f36dc&id=6</pre>
+<h2>サンプルリクエスト</h2>
+<pre>$ curl http://example.com/api.php/topic_comment/search.json?community_topic_id=1&apiKey=cdc4042edf74db746f5bf550039bf50979da2566aa514fc0aac8f57c56398be5</pre>
 <br />
 
-<h2>サンプルレスポンス normal</h2>
+<h2>サンプルレスポンス</h2>
 <pre class="prettyprint linenums">
 {
-    "status": "success",
-    "data":{
-        "id":"5",
-        "member":{
-            "id":"1",
-            "profile_image":"http:\/\/example.com\/images\/no_image.gif",
-            "screen_name":"OpenPNE\u541b",
-            "name":"OpenPNE\u541b",
-            "profile_url":"\/member\/1",
-            "friend":false,
-            "blocking":false,
-            "self":true,
-            "friends_count":0,
-            "self_introduction":null
-        },
-        "title":"タイトル",
-        "body":"本文",
-        "body_short":"本文",
-        "public_flag":"1",
-        "ago":"2012\u5e749\u67087\u65e5 16:09",
-        "created_at":"2012-09-07 16:09:33",
-        "images":[{
-            "filename":"\/cache\/img\/png\/w_h\/33e9af59c77006b453f83fc8991473cb6ed0bdd7_png.png",
-            "imagetag":"&lt;img alt=\"\" src=\"\/cache\/img\/png\/w120_h120\/33e9af59c77006b453f83fc8991473cb6ed0bdd7_png.png\" \/&gt;"
-        },
-        {
-            "filename":"\/cache\/img\/jpg\/w_h\/ef12105c06de658f44217875358883ded8c31ffb_jpg.jpg",
-            "imagetag":"&lt;img alt=\"\" src=\"\/cache\/img\/jpg\/w120_h120\/ef12105c06de658f44217875358883ded8c31ffb_jpg.jpg\" \/&gt;"
-        }],
-        "next":"6",
-        "prev":"4",
-        "editable":true
-    }
-}
-    }
-}
-</pre>
-<br />
-
-<h2>サンプルリクエスト mini</h2>
-<pre>$ curl http://example.com/api.php/diary/search.json?apiKey=a6a0fb34aeb63036883323875c4d5103a88bd266b1cb5cfcbef3df276a9f36dc&id=1&format=mini</pre>
-<br />
-
-<h2>サンプルレスポンス mini</h2>
-<pre class="prettyprint linenums">
-{
-    "status": "success",
+    "status":"success",
     "data":[{
-        "id":"6",
+        "id":"4",
+        "body":"33333333",
         "member":{
-            "id":"1",
-            "profile_image":"http:\/\/example.com\/images\/no_image.gif",
-            "screen_name":"OpenPNE\u541b",
-            "name":"OpenPNE\u541b",
-            "profile_url":"\/member\/1",
+            "id":"2",
+            "profile_image":"http:\/\/example.com\/web\/images\/no_image.gif",
+            "screen_name":"Member2",
+            "name":"Member2",
+            "profile_url":"\/member\/2",
             "friend":false,
             "blocking":false,
-            "self":true,
+            "self":false,
             "friends_count":0,
             "self_introduction":null
         },
-        "title":"6",
-        "body":"6",
-        "public_flag":"1",
-        "ago":"2012\u5e749\u67087\u65e5 16:39",
-        "created_at":"2012-09-07 16:39:18"
+        "created_at":"2012-09-30 09:26:36",
+        "deletable":true
     },
     {
         "id":"5",
+        "body":"5555555555",
         "member":{
-            "id":"1",
-            "profile_image":"http:\/\/example.com\/images\/no_image.gif",
-            "screen_name":"OpenPNE\u541b",
-            "name":"OpenPNE\u541b",
-            "profile_url":"\/member\/1",
+            "id":"2",
+            "profile_image":"http:\/\/example.com\/web\/images\/no_image.gif",
+            "screen_name":"Member2",
+            "name":"Member2",
+            "profile_url":"\/member\/2",
             "friend":false,
             "blocking":false,
-            "self":true,
+            "self":false,
             "friends_count":0,
             "self_introduction":null
         },
-        "title":"5",
-        "body":"5",
-        "body_short":"5",
-        "public_flag":"1",
-        "ago":"2012\u5e749\u67087\u65e5 16:09",
-        "created_at":"2012-09-07 16:09:33"
-    },
-    {
-        "id":"4",
-        "member":{
-            "id":"1",
-            "profile_image":"http:\/\/example.com\/images\/no_image.gif",
-            "screen_name":"OpenPNE\u541b",
-            "name":"OpenPNE\u541b",
-            "profile_url":"\/member\/1",
-            "friend":false,
-            "blocking":false,
-            "self":true,
-            "friends_count":0,
-            "self_introduction":null
-        },
-        "title":"4",
-        "body":"4",
-        "body_short":"4",
-        "public_flag":"1",
-        "ago":"2012\u5e749\u67087\u65e5 16:09",
-        "created_at":"2012-09-07 16:09:27"
-    },
-    {
-        "id":"3",
-        "member":{
-            "id":"1",
-            "profile_image":"http:\/\/example.com\/images\/no_image.gif",
-            "screen_name":"OpenPNE\u541b",
-            "name":"OpenPNE\u541b",
-            "profile_url":"\/member\/1",
-            "friend":false,
-            "blocking":false,
-            "self":true,
-            "friends_count":0,
-            "self_introduction":null
-        },
-        "title":"3",
-        "body":"3",
-        "body_short":"3",
-        "public_flag":"1",
-        "ago":"2012\u5e749\u67087\u65e5 16:08",
-        "created_at":"2012-09-07 16:08:53"
-    },
-    {
-        "id":"2",
-        "member":{
-            "id":"1",
-            "profile_image":"http:\/\/example.com\/images\/no_image.gif",
-            "screen_name":"OpenPNE\u541b",
-            "name":"OpenPNE\u541b",
-            "profile_url":"\/member\/1",
-            "friend":false,
-            "blocking":false,
-            "self":true,
-            "friends_count":0,
-            "self_introduction":null
-        },
-        "title":"2",
-        "body":"2",
-        "body_short":"2",
-        "public_flag":"1",
-        "ago":"2012\u5e749\u67087\u65e5 16:08",
-        "created_at":"2012-09-07 16:08:45"
-    },
-    {
-        "id":"1",
-        "member":{
-            "id":"1",
-            "profile_image":"http:\/\/example.com\/images\/no_image.gif",
-            "screen_name":"OpenPNE\u541b",
-            "name":"OpenPNE\u541b",
-            "profile_url":"\/member\/1",
-            "friend":false,
-            "blocking":false,
-            "self":true,
-            "friends_count":0,
-            "self_introduction":null
-        },
-        "title":"1",
-        "body":"1",
-        "body_short":"1",
-        "public_flag":"1",
-        "ago":"2012\u5e749\u67087\u65e5 16:08",
-        "created_at":"2012-09-07 16:08:35"
-    }],
-    "next":false
-}
+        "created_at":"2012-09-30 09:28:12",
+        "deletable":true
+    }]
+}             
 </pre>
+<br />
 					
 					<!-- InstanceEndEditable -->
   			</div><!--/span-->
