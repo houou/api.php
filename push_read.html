@@ -146,7 +146,7 @@
   <tbody>
     <tr>
       <td><span class="label">id</span><span class="label label-important">*必須</span></td>
-      <td><b>integer</b></td>
+      <td><b>string</b></td>
       <td>既読にする通知のIDを指定します。</td>
     </tr>
   </tbody>
@@ -169,7 +169,7 @@
 </table>
 
 <h2>サンプルリクエスト</h2>
-<pre>$ curl http://example.com/api.php/push/read.json?id=1234&amp;apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+<pre>$ curl http://example.com/api.php/push/read.json?id=0.60907600+1443437604&amp;apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
 <h2>サンプルレスポンス</h2>
 <pre class="prettyprint linenums">{"status":"success"}</pre>
