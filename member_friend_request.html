@@ -158,12 +158,7 @@
 
       <td><span class="label">member_id</span> <span class="label label-important">*必須</span></td>
       <td><b>integer</b></td>
-      <td>フレンドリクエストを承認、あるいは拒否する相手のメンバーIDを指定します。</td>
-    </tr>
-    <tr>
-      <td><span class="label">reject</span></td>
-      <td><b>boolean</b></td>
-      <td>フレンドリクエストを拒否したい場合は、このリクエストの値を<span class="label">true</span>に指定します。</td>
+      <td>フレンドリクエストを申請する相手のメンバーIDを指定します。</td>
     </tr>
   </tbody>
 </table>
@@ -184,7 +179,7 @@
   </tbody>
 </table>
 <h2>サンプルリクエスト</h2>
-<pre>$ curl http://example.com/api.php/member/friend_accept.json?member_id=1234&reject=true&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+<pre>$ curl http://example.com/api.php/member/friend_request.json?member_id=1234&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
 
 <br />
 
