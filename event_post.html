@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <!-- InstanceBeginEditable name="doctitle" -->
-    <title>activity/delete.json</title>
+    <title>event/post.json</title>
     <!-- InstanceEndEditable -->
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -94,16 +94,16 @@
  
           <li class="nav-header">開発版API Ver. 3.9.x〜</li>
  
- 	        <li class="nav-header">トピック</li>
-			    <li><a href="topic_post.html"><i class="icon-chevron-right"></i>topic/post.json</a></li>
-			    <li><a href="topic_delete.html"><i class="icon-chevron-right"></i>topic/delete.json</a></li>
-			    <li><a href="topic_search.html"><i class="icon-chevron-right"></i>topic/search.json</a></li>
+          <li class="nav-header">トピック</li>
+          <li><a href="topic_post.html"><i class="icon-chevron-right"></i>topic/post.json</a></li>
+          <li><a href="topic_delete.html"><i class="icon-chevron-right"></i>topic/delete.json</a></li>
+          <li><a href="topic_search.html"><i class="icon-chevron-right"></i>topic/search.json</a></li>
 
- 	        <li class="nav-header">トピックコメント</li>
-			    <li><a href="topic_comment_post.html"><i class="icon-chevron-right"></i>topic_comment/post.json</a></li>
-			    <li><a href="topic_comment_delete.html"><i class="icon-chevron-right"></i>topic_comment/delete.json</a></li>
-			    <li><a href="topic_comment_search.html"><i class="icon-chevron-right"></i>topic_comment/search.json</a></li>
-
+          <li class="nav-header">トピックコメント</li>
+          <li><a href="topic_comment_post.html"><i class="icon-chevron-right"></i>topic_comment/post.json</a></li>
+          <li><a href="topic_comment_delete.html"><i class="icon-chevron-right"></i>topic_comment/delete.json</a></li>
+          <li><a href="topic_comment_search.html"><i class="icon-chevron-right"></i>topic_comment/search.json</a></li>
+ 
           <li class="nav-header">イベント</li>
           <li><a href="event_post.html"><i class="icon-chevron-right"></i>event/post.json</a></li>
           <li><a href="event_delete.html"><i class="icon-chevron-right"></i>event/delete.json</a></li>
@@ -139,30 +139,61 @@
         <div class="span9">
           <!-- InstanceBeginEditable name="EditMain" -->
           
-<h2>activity/delete.json 概要</h2>
-<p>特定のタイムラインを削除します。</p>
+
+<h2>event/post.json 概要</h2>
+<p>トピック投稿</p>
 <p></p>
 
 <h2>リクエスト</h2>
-<table class="table table-striped table-bordered table-condensed">
-  <thead>
-    <tr>
-      <th>パラメータ</th>
-      <th>値</th>
-      <th>説明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-
-      <td><span class="label">activity_id</span></td>
-      <td><b>integer</b></td>
-      <td>削除したいタイムラインの、IDを指定します。</td>
-    </tr>
-  </tbody>
-</table>
+ <table class="table table-striped table-bordered table-condensed">
+   <thead>
+     <tr>
+       <th>パラメータ</th>
+       <th>値</th>
+       <th>説明</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td><span class="label">community_event_id</span> <span class="label label-important">*必須</span></td>
+       <td><b>integer</b></td>
+       <td>トピックのIDを指定します</td>
+     </tr>
+     <tr>
+       <td><span class="label">body</span> <span class="label label-important">*必須</span></td>
+       <td><b>string</b></td>
+       <td>コメントの本文を指定します。</td>
+     </tr>
+     <tr>
+       <td><span class="label">open_date</span> <span class="label label-important">*必須</span></td>
+       <td><b>integer</b></td>
+       <td>開催日時を指定します</td>
+     </tr>
+     <tr>
+       <td><span class="label">open_date_comment</span> </td>
+       <td><b>integer</b></td>
+       <td>開催日時補足を指定します</td>
+     </tr>
+     <tr>
+       <td><span class="label">area</span> <span class="label label-important">*必須</span></td>
+       <td><b>integer</b></td>
+       <td>開催場所を指定します</td>
+     </tr>
+     <tr>
+       <td><span class="label">application_deadline</span> </td>
+       <td><b>integer</b></td>
+       <td>募集期日を指定します</td>
+     </tr>
+     <tr>
+       <td><span class="label">capacity</span> </td>
+       <td><b>integer</b></td>
+       <td>募集人数を指定します</td>
+     </tr>
+   </tbody>
+ </table>
 
 <h2>レスポンス</h2>
+<p>
 <table class="table table-striped table-bordered table-condensed">
   <thead>
     <tr>
@@ -172,23 +203,84 @@
   </thead>
   <tbody>
     <tr>
-      <td><span class="label">message</span></td>
-      <td><span class="label">status</span>フィールドが<span class="label">error</span>のときにメッセージを返します。</td>
+      <td><span class="label">id</span></td>
+      <td>トピックID</td>
     </tr>
 
+    <tr>
+      <td><span class="label">community_id</span></td>
+      <td>コミュニティID</td>
+    </tr>
+
+    <tr>
+      <td><span class="label">community_name</span></td>
+      <td>コミュニティの名前</td>
+    </tr>
+
+    <tr>
+      <td><span class="label">member</span></td>
+      <td>トピック所有者メンバーの情報(詳しくは レスポンスの共通仕様 を参照)</td>
+    </tr>
+
+    <tr>
+      <td><span class="label">name</span></td>
+      <td>トピックのタイトル</td>
+    </tr>
+
+    <tr>
+      <td><span class="label">body</span></td>
+      <td>トピックの本文</td>
+    </tr>
+
+    <tr>
+      <td><span class="label">created_at</span></td>
+      <td>トピックの作成時間</td>
+    </tr>
+
+    <tr>
+      <td><span class="label">images</span></td>
+      <td>トピックに添付された画像のリスト</td>
+    </tr>
+
+    <tr>
+      <td><span class="label">editable</span></td>
+      <td>トピックが編集可能かどうかのフラグ</td>
+    </tr>
   </tbody>
 </table>
-
-
 <h2>サンプルリクエスト</h2>
-<pre>$ curl http://example.com/api.php/activity/delete.json?activity_id=20&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+<pre>$ curl -XPOST -d 'apiKey=cdc4042edf74db746f5bf550039bf50979da2566aa514fc0aac8f57c56398be5&community_id=1&name=bbbbbb&body=bbbbbbbbb' http://example.com/api.php/event/post.json</pre>
 
 <br />
 
 <h2>サンプルレスポンス</h2>
-
 <pre class="prettyprint linenums">
-{"status":"success"}
+{
+    "status":"success",
+    "data":{
+        "id":"5",
+        "community_id":"1",
+        "community_name":"all",
+        "name":"bbbbbb",
+        "member":{
+            "id":"1",
+            "profile_image":"http:\/\/example.com\/images\/no_image.gif",
+            "screen_name":"OpenPNE\u541b",
+            "name":"OpenPNE\u541b",
+            "profile_url":"\/member\/1",
+            "friend":false,
+            "blocking":false,
+            "self":true,
+            "friends_count":0,
+            "self_introduction":null
+        },
+        "body":"bbbbbbbb",
+        "created_at":"2012-09-27 14:57:57",
+        "ago":"5\u79d2\u4ee5\u5185",
+        "editable":false,
+        "images":[]
+    }
+}
 </pre>
 
 					

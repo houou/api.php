@@ -104,6 +104,16 @@
 			    <li><a href="topic_comment_delete.html"><i class="icon-chevron-right"></i>topic_comment/delete.json</a></li>
 			    <li><a href="topic_comment_search.html"><i class="icon-chevron-right"></i>topic_comment/search.json</a></li>
 
+          <li class="nav-header">イベント</li>
+          <li><a href="event_post.html"><i class="icon-chevron-right"></i>event/post.json</a></li>
+          <li><a href="event_delete.html"><i class="icon-chevron-right"></i>event/delete.json</a></li>
+          <li><a href="event_search.html"><i class="icon-chevron-right"></i>event/search.json</a></li>
+
+          <li class="nav-header">イベントコメント</li>
+          <li><a href="event_comment_post.html"><i class="icon-chevron-right"></i>event_comment/post.json</a></li>
+          <li><a href="event_comment_delete.html"><i class="icon-chevron-right"></i>event_comment/delete.json</a></li>
+          <li><a href="event_comment_search.html"><i class="icon-chevron-right"></i>event_comment/search.json</a></li>
+
  					<li class="nav-header">日記</li>
   				<li><a href="diary_post.html"><i class="icon-chevron-right"></i>diary/post</a></li>
   				<li><a href="diary_delete.html"><i class="icon-chevron-right"></i>diary/delete</a></li>
@@ -219,7 +229,7 @@
   </tbody>
 </table>
 <h2>サンプルリクエスト</h2>
-<pre>$ curl http://example.com/api.php/activity/post.json?title=タイトル&body=本文&public_flag=1&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5</pre>
+<pre>$ curl -XPOST -d 'title=タイトル&body=本文&public_flag=1&apiKey=5ad9d5a6a11c5f13ca5901a7c6e1d89ea991dc195666de393a61c808c61d19a5' http://example.com/api.php/diary/post.json</pre>
 
 <br />
 
